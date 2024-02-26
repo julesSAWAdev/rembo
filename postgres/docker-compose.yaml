@@ -1,0 +1,102 @@
+version: '3'
+networks: 
+  remboNet:
+
+services:
+  postgres:
+    image: postgres:latest
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: rembo
+    command: |
+      postgres 
+      -c wal_level=logical 
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - remboNet
+    healthcheck: 
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+  pgadmin: 
+    image: dpage/pgadmin4
+    restart: always
+    environment: 
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports: 
+      - 5050:80
+    depends_on:
+      - postgres
+    networks:
+      - remboNet
+  app:
+    container_name: customer_loader 
+    restart: unless-stopped
+    build: 
+      context: .
+      dockerfile: Dockerfile_app
+    volumes:
+      - .:/postgres
+    depends_on:
+      - postgres
+    networks:
+      - remboNet
+  app1: 
+    container_name: territory_loader
+    restart: unless-stopped
+    build: 
+      context: .
+      dockerfile: Dockerfile_territory
+    volumes:
+      - .:/postgres
+    depends_on:
+      - app
+    networks:
+      - remboNet
+  app2: 
+    container_name: employee_loader
+    restart: unless-stopped
+    build: 
+      context: .
+      dockerfile: Dockerfile_employees
+    volumes:
+      - .:/postgres
+    depends_on:
+      - app1
+    networks:
+      - remboNet
+  app3: 
+    container_name: sales_loader
+    restart: unless-stopped
+    build: 
+      context: .
+      dockerfile: Dockerfile_sales
+    volumes:
+      - .:/postgres
+    depends_on:
+      - app2
+    networks:
+      - remboNet
+  dbt: 
+    container_name: dbt-engine
+    build: .
+    image: dbt-dummy
+    volumes:
+        - .:/postgres
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - remboNet
+  
+ 
+
+
+

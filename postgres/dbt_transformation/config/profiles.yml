@@ -1,0 +1,8 @@
+dbt_transformation:
+  outputs:
+    default: 
+      type: clickhouse
+      schema: rembo
+      user: user1
+      password: password
+      

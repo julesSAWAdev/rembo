@@ -4,7 +4,7 @@ setup(
     name="modern-data-stack-project",
     packages=find_packages(),
     install_requires=[
-        "dbt-bigquery",
+        "dbt-clickhouse",
         "dagster",
         "dagster-cloud",
         "dagster-dbt",

@@ -1,0 +1,14 @@
+FROM python:3.6
+
+#update packages
+
+RUN apt-get update
+
+COPY . /postgres
+
+WORKDIR /postgres
+
+RUN pip install --no-cache-dir -r requirement.txt
+
+CMD ["python","insert_data_sales.py"]
+

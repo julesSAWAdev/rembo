@@ -1,0 +1,951 @@
+2024-02-26 22:28:09 [46mplatform[0m > Docker volume job log path: /tmp/workspace/13/0/logs.log
+2024-02-26 22:28:09 [46mplatform[0m > Executing worker wrapper. Airbyte version: 0.50.50
+2024-02-26 22:28:09 [46mplatform[0m > Attempt 0 to save workflow id for cancellation
+2024-02-26 22:28:09 [46mplatform[0m > start sync worker. job id: 13 attempt id: 0
+2024-02-26 22:28:10 [46mplatform[0m > 
+2024-02-26 22:28:10 [46mplatform[0m > ----- START REPLICATION -----
+2024-02-26 22:28:10 [46mplatform[0m > 
+2024-02-26 22:28:10 [46mplatform[0m > Running destination...
+2024-02-26 22:28:10 [46mplatform[0m > Using default value for environment variable SIDECAR_KUBE_CPU_LIMIT: '2.0'
+2024-02-26 22:28:10 [46mplatform[0m > Using default value for environment variable SIDECAR_KUBE_CPU_LIMIT: '2.0'
+2024-02-26 22:28:10 [46mplatform[0m > Using default value for environment variable SOCAT_KUBE_CPU_LIMIT: '2.0'
+2024-02-26 22:28:10 [46mplatform[0m > Using default value for environment variable SOCAT_KUBE_CPU_LIMIT: '2.0'
+2024-02-26 22:28:10 [46mplatform[0m > Using default value for environment variable SIDECAR_KUBE_CPU_REQUEST: '0.1'
+2024-02-26 22:28:10 [46mplatform[0m > Using default value for environment variable SIDECAR_KUBE_CPU_REQUEST: '0.1'
+2024-02-26 22:28:10 [46mplatform[0m > Using default value for environment variable SOCAT_KUBE_CPU_REQUEST: '0.1'
+2024-02-26 22:28:10 [46mplatform[0m > Using default value for environment variable SOCAT_KUBE_CPU_REQUEST: '0.1'
+2024-02-26 22:28:10 [46mplatform[0m > Using default value for environment variable LAUNCHDARKLY_KEY: ''
+2024-02-26 22:28:10 [46mplatform[0m > Using default value for environment variable LAUNCHDARKLY_KEY: ''
+2024-02-26 22:28:10 [46mplatform[0m > Checking if airbyte/source-postgres:3.3.8 exists...
+2024-02-26 22:28:10 [46mplatform[0m > Checking if airbyte/destination-clickhouse:0.2.5 exists...
+2024-02-26 22:28:10 [46mplatform[0m > airbyte/destination-clickhouse:0.2.5 was found locally.
+2024-02-26 22:28:10 [46mplatform[0m > airbyte/source-postgres:3.3.8 was found locally.
+2024-02-26 22:28:10 [46mplatform[0m > Creating docker container = destination-clickhouse-write-13-0-mlvyc with resources io.airbyte.config.ResourceRequirements@3715781d[cpuRequest=1,cpuLimit=2,memoryRequest=1Gi,memoryLimit=2Gi,additionalProperties={}] and allowedHosts null
+2024-02-26 22:28:10 [46mplatform[0m > Creating docker container = source-postgres-read-13-0-uiqvr with resources io.airbyte.config.ResourceRequirements@42ae9749[cpuRequest=1,cpuLimit=2,memoryRequest=1Gi,memoryLimit=2Gi,additionalProperties={}] and allowedHosts io.airbyte.config.AllowedHosts@1953ed0b[hosts=[localhost, *.datadoghq.com, *.datadoghq.eu, *.sentry.io],additionalProperties={}]
+2024-02-26 22:28:10 [46mplatform[0m > Preparing command: docker run --rm --init -i -w /data/13/0 --log-driver none --name destination-clickhouse-write-13-0-mlvyc --network host -v airbyte_workspace:/data -v /tmp/airbyte_local:/local -e DEPLOYMENT_MODE=OSS -e WORKER_CONNECTOR_IMAGE=airbyte/destination-clickhouse:0.2.5 -e AUTO_DETECT_SCHEMA=true -e LAUNCHDARKLY_KEY= -e SOCAT_KUBE_CPU_REQUEST=0.1 -e SOCAT_KUBE_CPU_LIMIT=2.0 -e FIELD_SELECTION_WORKSPACES= -e USE_STREAM_CAPABLE_STATE=true -e WORKER_ENVIRONMENT=DOCKER -e AIRBYTE_ROLE=dev -e APPLY_FIELD_SELECTION=false -e WORKER_JOB_ATTEMPT=0 -e OTEL_COLLECTOR_ENDPOINT=http://host.docker.internal:4317 -e FEATURE_FLAG_CLIENT=config -e AIRBYTE_VERSION=0.50.50 -e WORKER_JOB_ID=13 --cpus=2 --memory-reservation=1Gi --memory=2Gi airbyte/destination-clickhouse:0.2.5 write --config destination_config.json --catalog destination_catalog.json
+2024-02-26 22:28:10 [46mplatform[0m > Preparing command: docker run --rm --init -i -w /data/13/0 --log-driver none --name source-postgres-read-13-0-uiqvr -e CONCURRENT_SOURCE_STREAM_READ=false --network host -v airbyte_workspace:/data -v /tmp/airbyte_local:/local -e DEPLOYMENT_MODE=OSS -e WORKER_CONNECTOR_IMAGE=airbyte/source-postgres:3.3.8 -e AUTO_DETECT_SCHEMA=true -e LAUNCHDARKLY_KEY= -e SOCAT_KUBE_CPU_REQUEST=0.1 -e SOCAT_KUBE_CPU_LIMIT=2.0 -e FIELD_SELECTION_WORKSPACES= -e USE_STREAM_CAPABLE_STATE=true -e WORKER_ENVIRONMENT=DOCKER -e AIRBYTE_ROLE=dev -e APPLY_FIELD_SELECTION=false -e WORKER_JOB_ATTEMPT=0 -e OTEL_COLLECTOR_ENDPOINT=http://host.docker.internal:4317 -e FEATURE_FLAG_CLIENT=config -e AIRBYTE_VERSION=0.50.50 -e WORKER_JOB_ID=13 --cpus=2 --memory-reservation=1Gi --memory=2Gi airbyte/source-postgres:3.3.8 read --config source_config.json --catalog source_catalog.json --state input_state.json
+2024-02-26 22:28:10 [46mplatform[0m > Reading messages from protocol version 0.2.0
+2024-02-26 22:28:10 [46mplatform[0m > Writing messages to protocol version 0.2.0
+2024-02-26 22:28:10 [46mplatform[0m > Reading messages from protocol version 0.2.0
+2024-02-26 22:28:10 [46mplatform[0m > readFromSource: start
+2024-02-26 22:28:10 [46mplatform[0m > Starting source heartbeat check. Will check every 1 minutes.
+2024-02-26 22:28:10 [46mplatform[0m > writeToDestination: start
+2024-02-26 22:28:10 [46mplatform[0m > processMessage: start
+2024-02-26 22:28:10 [46mplatform[0m > readFromDestination: start
+2024-02-26 22:28:12 [44msource[0m > WARN StatusConsoleListener The use of package scanning to locate plugins is deprecated and will be removed in a future release
+2024-02-26 22:28:12 [44msource[0m > WARN StatusConsoleListener The use of package scanning to locate plugins is deprecated and will be removed in a future release
+2024-02-26 22:28:12 [44msource[0m > WARN StatusConsoleListener The use of package scanning to locate plugins is deprecated and will be removed in a future release
+2024-02-26 22:28:12 [44msource[0m > WARN StatusConsoleListener The use of package scanning to locate plugins is deprecated and will be removed in a future release
+2024-02-26 22:28:13 [44msource[0m > 2024-02-26 22:28:13 [32mINFO[m i.a.i.s.p.PostgresSource(main):712 - starting source: class io.airbyte.integrations.source.postgres.PostgresSource
+2024-02-26 22:28:13 [44msource[0m > 2024-02-26 22:28:13 [32mINFO[m i.a.c.i.b.IntegrationCliParser(parseOptions):126 - integration args: {read=null, catalog=source_catalog.json, state=input_state.json, config=source_config.json}
+2024-02-26 22:28:13 [44msource[0m > 2024-02-26 22:28:13 [32mINFO[m i.a.c.i.b.IntegrationRunner(runInternal):132 - Running integration: io.airbyte.cdk.integrations.base.ssh.SshWrappedSource
+2024-02-26 22:28:13 [44msource[0m > 2024-02-26 22:28:13 [32mINFO[m i.a.c.i.b.IntegrationRunner(runInternal):133 - Command: READ
+2024-02-26 22:28:13 [44msource[0m > 2024-02-26 22:28:13 [32mINFO[m i.a.c.i.b.IntegrationRunner(runInternal):134 - Integration config: IntegrationConfig{command=READ, configPath='source_config.json', catalogPath='source_catalog.json', statePath='input_state.json'}
+2024-02-26 22:28:13 [44msource[0m > 2024-02-26 22:28:13 [33mWARN[m c.n.s.JsonMetaSchema(newValidator):278 - Unknown keyword groups - you should define your own Meta Schema. If the keyword is irrelevant for validation, just use a NonValidationKeyword
+2024-02-26 22:28:13 [44msource[0m > 2024-02-26 22:28:13 [33mWARN[m c.n.s.JsonMetaSchema(newValidator):278 - Unknown keyword order - you should define your own Meta Schema. If the keyword is irrelevant for validation, just use a NonValidationKeyword
+2024-02-26 22:28:13 [44msource[0m > 2024-02-26 22:28:13 [33mWARN[m c.n.s.JsonMetaSchema(newValidator):278 - Unknown keyword group - you should define your own Meta Schema. If the keyword is irrelevant for validation, just use a NonValidationKeyword
+2024-02-26 22:28:13 [44msource[0m > 2024-02-26 22:28:13 [33mWARN[m c.n.s.JsonMetaSchema(newValidator):278 - Unknown keyword airbyte_secret - you should define your own Meta Schema. If the keyword is irrelevant for validation, just use a NonValidationKeyword
+2024-02-26 22:28:13 [44msource[0m > 2024-02-26 22:28:13 [33mWARN[m c.n.s.JsonMetaSchema(newValidator):278 - Unknown keyword always_show - you should define your own Meta Schema. If the keyword is irrelevant for validation, just use a NonValidationKeyword
+2024-02-26 22:28:13 [44msource[0m > 2024-02-26 22:28:13 [33mWARN[m c.n.s.JsonMetaSchema(newValidator):278 - Unknown keyword display_type - you should define your own Meta Schema. If the keyword is irrelevant for validation, just use a NonValidationKeyword
+2024-02-26 22:28:14 [44msource[0m > 2024-02-26 22:28:14 [32mINFO[m i.a.c.i.b.s.SshTunnel(getInstance):252 - Starting connection with method: NO_TUNNEL
+2024-02-26 22:28:14 [44msource[0m > 2024-02-26 22:28:14 [32mINFO[m i.a.i.s.p.PostgresUtils(isCdc):70 - using CDC: false
+2024-02-26 22:28:14 [44msource[0m > 2024-02-26 22:28:14 [32mINFO[m i.a.c.i.s.r.s.StateManagerFactory(createStateManager):57 - Stream state manager selected to manage state object with type STREAM.
+2024-02-26 22:28:14 [44msource[0m > 2024-02-26 22:28:14 [32mINFO[m i.a.i.s.p.PostgresSource(toSslJdbcParamInternal):768 - DISABLED toSslJdbcParam disable
+2024-02-26 22:28:14 [43mdestination[0m > INFO i.a.i.d.c.ClickhouseDestination(main):113 starting destination: class io.airbyte.integrations.destination.clickhouse.ClickhouseDestination
+2024-02-26 22:28:14 [44msource[0m > 2024-02-26 22:28:14 [32mINFO[m c.z.h.HikariDataSource(<init>):79 - HikariPool-1 - Starting...
+2024-02-26 22:28:14 [44msource[0m > 2024-02-26 22:28:14 [32mINFO[m c.z.h.HikariDataSource(<init>):81 - HikariPool-1 - Start completed.
+2024-02-26 22:28:14 [43mdestination[0m > INFO i.a.i.b.IntegrationCliParser(parseOptions):126 integration args: {catalog=destination_catalog.json, write=null, config=destination_config.json}
+2024-02-26 22:28:14 [43mdestination[0m > INFO i.a.i.b.IntegrationRunner(runInternal):106 Running integration: io.airbyte.integrations.base.ssh.SshWrappedDestination
+2024-02-26 22:28:14 [43mdestination[0m > INFO i.a.i.b.IntegrationRunner(runInternal):107 Command: WRITE
+2024-02-26 22:28:14 [43mdestination[0m > INFO i.a.i.b.IntegrationRunner(runInternal):108 Integration config: IntegrationConfig{command=WRITE, configPath='destination_config.json', catalogPath='destination_catalog.json', statePath='null'}
+2024-02-26 22:28:14 [43mdestination[0m > WARN c.n.s.JsonMetaSchema(newValidator):278 Unknown keyword order - you should define your own Meta Schema. If the keyword is irrelevant for validation, just use a NonValidationKeyword
+2024-02-26 22:28:14 [43mdestination[0m > WARN c.n.s.JsonMetaSchema(newValidator):278 Unknown keyword airbyte_secret - you should define your own Meta Schema. If the keyword is irrelevant for validation, just use a NonValidationKeyword
+2024-02-26 22:28:14 [44msource[0m > 2024-02-26 22:28:14 [32mINFO[m i.a.i.s.p.PostgresUtils(isCdc):70 - using CDC: false
+2024-02-26 22:28:14 [44msource[0m > 2024-02-26 22:28:14 [32mINFO[m i.a.c.i.s.j.AbstractJdbcSource(logPreSyncDebugData):467 - Data source product recognized as PostgreSQL:16.2 (Debian 16.2-1.pgdg120+2)
+2024-02-26 22:28:15 [44msource[0m > 2024-02-26 22:28:15 [32mINFO[m i.a.i.s.p.PostgresSource(logPreSyncDebugData):266 - Discovering indexes for schema "public", table "employee"
+2024-02-26 22:28:15 [44msource[0m > 2024-02-26 22:28:15 [32mINFO[m i.a.i.s.p.PostgresSource(logPreSyncDebugData):268 - Index name: employee_pkey, Column: employee_id, Unique: true
+2024-02-26 22:28:15 [44msource[0m > 2024-02-26 22:28:15 [32mINFO[m i.a.i.s.p.PostgresSource(logPreSyncDebugData):266 - Discovering indexes for schema "public", table "sales_territory"
+2024-02-26 22:28:15 [44msource[0m > 2024-02-26 22:28:15 [32mINFO[m i.a.i.s.p.PostgresSource(logPreSyncDebugData):268 - Index name: sales_territory_pkey, Column: sales_territory_id, Unique: true
+2024-02-26 22:28:15 [44msource[0m > 2024-02-26 22:28:15 [32mINFO[m i.a.i.s.p.PostgresSource(logPreSyncDebugData):266 - Discovering indexes for schema "public", table "sales"
+2024-02-26 22:28:15 [44msource[0m > 2024-02-26 22:28:15 [32mINFO[m i.a.i.s.p.PostgresSource(logPreSyncDebugData):268 - Index name: sales_pkey, Column: sales_id, Unique: true
+2024-02-26 22:28:15 [44msource[0m > 2024-02-26 22:28:15 [32mINFO[m i.a.i.s.p.PostgresSource(logPreSyncDebugData):266 - Discovering indexes for schema "public", table "customer"
+2024-02-26 22:28:15 [44msource[0m > 2024-02-26 22:28:15 [32mINFO[m i.a.i.s.p.PostgresSource(logPreSyncDebugData):268 - Index name: customer_pkey, Column: customer_id, Unique: true
+2024-02-26 22:28:15 [44msource[0m > 2024-02-26 22:28:15 [32mINFO[m i.a.c.i.s.j.AbstractJdbcSource(discoverInternal):169 - Internal schemas to exclude: [catalog_history, information_schema, pg_catalog, pg_internal]
+2024-02-26 22:28:15 [44msource[0m > 2024-02-26 22:28:15 [32mINFO[m i.a.c.d.j.s.AdaptiveStreamingQueryConfig(initialize):31 - Set initial fetch size: 10 rows
+2024-02-26 22:28:15 [44msource[0m > 2024-02-26 22:28:15 [32mINFO[m i.a.i.s.p.PostgresUtils(isCdc):70 - using CDC: false
+2024-02-26 22:28:15 [44msource[0m > 2024-02-26 22:28:15 [32mINFO[m i.a.i.s.p.PostgresUtils(isXmin):190 - using Xmin: true
+2024-02-26 22:28:15 [44msource[0m > 2024-02-26 22:28:15 [32mINFO[m i.a.i.s.p.PostgresSource(getIncrementalIterators):488 - Xmin Status : {Number of wraparounds: 0, Xmin Transaction Value: 1086, Xmin Raw Value: 1086
+2024-02-26 22:28:15 [44msource[0m > 2024-02-26 22:28:15 [32mINFO[m i.a.i.s.p.PostgresSource(getIncrementalIterators):527 - No Streams will be synced via ctid.
+2024-02-26 22:28:15 [44msource[0m > 2024-02-26 22:28:15 [32mINFO[m i.a.i.s.p.PostgresSource(getIncrementalIterators):531 - Streams to be synced via xmin : 4
+2024-02-26 22:28:15 [44msource[0m > 2024-02-26 22:28:15 [32mINFO[m i.a.i.s.p.PostgresSource(getIncrementalIterators):532 - Streams: public.employee, public.sales_territory, public.sales, public.customer
+2024-02-26 22:28:15 [44msource[0m > 2024-02-26 22:28:15 [32mINFO[m i.a.i.s.p.x.XminStateManager(createPairToXminStatusMap):48 - State message: io.airbyte.protocol.models.v0.AirbyteStateMessage@bf71cec[type=STREAM,stream=io.airbyte.protocol.models.v0.AirbyteStreamState@22d6cac2[streamDescriptor=io.airbyte.protocol.models.v0.StreamDescriptor@30cdae70[name=employee,namespace=public,additionalProperties={}],streamState={"version":2,"state_type":"xmin","num_wraparound":0,"xmin_raw_value":828,"xmin_xid_value":828},additionalProperties={}],global=<null>,data=<null>,sourceStats=<null>,destinationStats=<null>,additionalProperties={}]
+2024-02-26 22:28:15 [44msource[0m > 2024-02-26 22:28:15 [32mINFO[m i.a.i.s.p.x.XminStateManager(createPairToXminStatusMap):48 - State message: io.airbyte.protocol.models.v0.AirbyteStateMessage@4e6d7365[type=STREAM,stream=io.airbyte.protocol.models.v0.AirbyteStreamState@7c0da600[streamDescriptor=io.airbyte.protocol.models.v0.StreamDescriptor@d4602a[name=sales,namespace=public,additionalProperties={}],streamState={"version":2,"state_type":"xmin","num_wraparound":0,"xmin_raw_value":828,"xmin_xid_value":828},additionalProperties={}],global=<null>,data=<null>,sourceStats=<null>,destinationStats=<null>,additionalProperties={}]
+2024-02-26 22:28:15 [44msource[0m > 2024-02-26 22:28:15 [32mINFO[m i.a.i.s.p.x.XminStateManager(createPairToXminStatusMap):48 - State message: io.airbyte.protocol.models.v0.AirbyteStateMessage@21ae6e73[type=STREAM,stream=io.airbyte.protocol.models.v0.AirbyteStreamState@47dd778[streamDescriptor=io.airbyte.protocol.models.v0.StreamDescriptor@15515c51[name=sales_territory,namespace=public,additionalProperties={}],streamState={"version":2,"state_type":"xmin","num_wraparound":0,"xmin_raw_value":828,"xmin_xid_value":828},additionalProperties={}],global=<null>,data=<null>,sourceStats=<null>,destinationStats=<null>,additionalProperties={}]
+2024-02-26 22:28:15 [44msource[0m > 2024-02-26 22:28:15 [32mINFO[m i.a.i.s.p.x.XminStateManager(createPairToXminStatusMap):48 - State message: io.airbyte.protocol.models.v0.AirbyteStateMessage@36a7abe1[type=STREAM,stream=io.airbyte.protocol.models.v0.AirbyteStreamState@64a896b0[streamDescriptor=io.airbyte.protocol.models.v0.StreamDescriptor@e044b4a[name=customer,namespace=public,additionalProperties={}],streamState={"version":2,"state_type":"xmin","num_wraparound":0,"xmin_raw_value":828,"xmin_xid_value":828},additionalProperties={}],global=<null>,data=<null>,sourceStats=<null>,destinationStats=<null>,additionalProperties={}]
+2024-02-26 22:28:15 [44msource[0m > 2024-02-26 22:28:15 [32mINFO[m i.a.i.s.p.x.PostgresXminHandler(queryTableXmin):115 - Queueing query for table: employee
+2024-02-26 22:28:15 [44msource[0m > 2024-02-26 22:28:15 [32mINFO[m i.a.i.s.p.x.PostgresXminHandler(queryTableXmin):115 - Queueing query for table: sales_territory
+2024-02-26 22:28:15 [44msource[0m > 2024-02-26 22:28:15 [32mINFO[m i.a.i.s.p.x.PostgresXminHandler(queryTableXmin):115 - Queueing query for table: sales
+2024-02-26 22:28:15 [44msource[0m > 2024-02-26 22:28:15 [32mINFO[m i.a.i.s.p.x.PostgresXminHandler(queryTableXmin):115 - Queueing query for table: customer
+2024-02-26 22:28:15 [44msource[0m > 2024-02-26 22:28:15 [32mINFO[m i.a.i.s.p.x.PostgresXminHandler(createXminQueryStatement):137 - Preparing query for table: employee
+2024-02-26 22:28:15 [44msource[0m > 2024-02-26 22:28:15 [32mINFO[m i.a.i.s.p.x.PostgresXminHandler(createXminQueryStatement):147 - Executing query for table employee: HikariProxyPreparedStatement@1850646717 wrapping SELECT "employee_id","employee_name","employee_territory_region" FROM "public"."employee" WHERE xmin::text::bigint >= 828
+2024-02-26 22:28:15 [44msource[0m > 2024-02-26 22:28:15 [32mINFO[m i.a.c.d.j.s.AdaptiveStreamingQueryConfig(initialize):31 - Set initial fetch size: 10 rows
+2024-02-26 22:28:15 [44msource[0m > 2024-02-26 22:28:15 [32mINFO[m i.a.i.s.p.x.PostgresXminHandler(createXminQueryStatement):137 - Preparing query for table: sales_territory
+2024-02-26 22:28:15 [44msource[0m > 2024-02-26 22:28:15 [32mINFO[m i.a.i.s.p.x.PostgresXminHandler(createXminQueryStatement):147 - Executing query for table sales_territory: HikariProxyPreparedStatement@83674409 wrapping SELECT "sales_territory_id","sales_territory_country","sales_territory_region","sales_territory_city" FROM "public"."sales_territory" WHERE xmin::text::bigint >= 828
+2024-02-26 22:28:15 [44msource[0m > 2024-02-26 22:28:15 [32mINFO[m i.a.c.d.j.s.AdaptiveStreamingQueryConfig(initialize):31 - Set initial fetch size: 10 rows
+2024-02-26 22:28:15 [44msource[0m > 2024-02-26 22:28:15 [32mINFO[m i.a.i.s.p.x.PostgresXminHandler(createXminQueryStatement):137 - Preparing query for table: sales
+2024-02-26 22:28:15 [44msource[0m > 2024-02-26 22:28:15 [32mINFO[m i.a.i.s.p.x.PostgresXminHandler(createXminQueryStatement):147 - Executing query for table sales: HikariProxyPreparedStatement@1273879638 wrapping SELECT "sales_id","currencykey","customerkey","discount_amount","duedate","duedatekey","extended_amount","freight","order_date","order_quantity","product_standard_cost","revision_number","sales_amount","sales_order_line_number","sales_order_number","salesterritorykey","shipdate","tax_amt","total_product_cost","unit_price","unit_price_discount_pct","employee_id" FROM "public"."sales" WHERE xmin::text::bigint >= 828
+2024-02-26 22:28:15 [44msource[0m > 2024-02-26 22:28:15 [32mINFO[m i.a.c.d.j.s.AdaptiveStreamingQueryConfig(initialize):31 - Set initial fetch size: 10 rows
+2024-02-26 22:28:15 [44msource[0m > 2024-02-26 22:28:15 [32mINFO[m i.a.c.d.j.s.AdaptiveStreamingQueryConfig(accept):40 - Set new fetch size: 170667 rows
+2024-02-26 22:28:15 [43mdestination[0m > INFO i.a.i.b.s.SshTunnel(getInstance):204 Starting connection with method: NO_TUNNEL
+2024-02-26 22:28:16 [44msource[0m > 2024-02-26 22:28:16 [32mINFO[m i.a.c.d.j.s.TwoStageSizeEstimator(getTargetBufferByteSize):71 - Max memory limit: 1610612736, JDBC buffer size: 966367642
+2024-02-26 22:28:16 [43mdestination[0m > INFO c.z.h.HikariDataSource(<init>):80 HikariPool-1 - Starting...
+2024-02-26 22:28:16 [43mdestination[0m > INFO c.z.h.HikariDataSource(<init>):82 HikariPool-1 - Start completed.
+2024-02-26 22:28:16 [43mdestination[0m > INFO i.a.i.d.j.JdbcBufferedConsumerFactory(lambda$toWriteConfig$0):103 Write config: WriteConfig{streamName=employee, namespace=null, outputSchemaName=rembo, tmpTableName=_airbyte_tmp_cus_employee, outputTableName=_airbyte_raw_employee, syncMode=append_dedup}
+2024-02-26 22:28:16 [43mdestination[0m > INFO i.a.i.d.j.JdbcBufferedConsumerFactory(lambda$toWriteConfig$0):103 Write config: WriteConfig{streamName=sales_territory, namespace=null, outputSchemaName=rembo, tmpTableName=_airbyte_tmp_bls_sales_territory, outputTableName=_airbyte_raw_sales_territory, syncMode=append_dedup}
+2024-02-26 22:28:16 [43mdestination[0m > INFO i.a.i.d.j.JdbcBufferedConsumerFactory(lambda$toWriteConfig$0):103 Write config: WriteConfig{streamName=sales, namespace=null, outputSchemaName=rembo, tmpTableName=_airbyte_tmp_zmn_sales, outputTableName=_airbyte_raw_sales, syncMode=append_dedup}
+2024-02-26 22:28:16 [43mdestination[0m > INFO i.a.i.d.j.JdbcBufferedConsumerFactory(lambda$toWriteConfig$0):103 Write config: WriteConfig{streamName=customer, namespace=null, outputSchemaName=rembo, tmpTableName=_airbyte_tmp_oox_customer, outputTableName=_airbyte_raw_customer, syncMode=append_dedup}
+2024-02-26 22:28:16 [43mdestination[0m > INFO i.a.i.d.b.BufferedStreamConsumer(startTracked):144 class io.airbyte.integrations.destination.buffered_stream_consumer.BufferedStreamConsumer started.
+2024-02-26 22:28:16 [43mdestination[0m > INFO i.a.i.d.j.JdbcBufferedConsumerFactory(lambda$onStartFunction$1):142 Preparing raw tables in destination started for 4 streams
+2024-02-26 22:28:16 [43mdestination[0m > INFO i.a.i.d.j.JdbcBufferedConsumerFactory(lambda$onStartFunction$1):147 Preparing raw table in destination started for stream employee. schema: rembo, table name: _airbyte_raw_employee
+2024-02-26 22:28:17 [46mplatform[0m > Records read: 5000 (2 MB)
+2024-02-26 22:29:16 [43mdestination[0m > ERROR i.a.i.b.FailureTrackingAirbyteMessageConsumer(start):45 Exception while starting consumer java.sql.SQLTransientConnectionException: HikariPool-1 - Connection is not available, request timed out after 60007ms.
+	at com.zaxxer.hikari.pool.HikariPool.createTimeoutException(HikariPool.java:696) ~[HikariCP-5.0.1.jar:?]
+	at com.zaxxer.hikari.pool.HikariPool.getConnection(HikariPool.java:181) ~[HikariCP-5.0.1.jar:?]
+	at com.zaxxer.hikari.pool.HikariPool.getConnection(HikariPool.java:146) ~[HikariCP-5.0.1.jar:?]
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:100) ~[HikariCP-5.0.1.jar:?]
+	at io.airbyte.db.jdbc.DefaultJdbcDatabase.execute(DefaultJdbcDatabase.java:45) ~[io.airbyte.airbyte-db-db-lib-24.0.2.jar:?]
+	at io.airbyte.db.jdbc.JdbcDatabase.execute(JdbcDatabase.java:49) ~[io.airbyte.airbyte-db-db-lib-24.0.2.jar:?]
+	at io.airbyte.integrations.destination.clickhouse.ClickhouseSqlOperations.createSchemaIfNotExists(ClickhouseSqlOperations.java:28) ~[io.airbyte.airbyte-integrations.connectors-destination-clickhouse-24.0.2.jar:?]
+	at io.airbyte.integrations.destination.jdbc.JdbcBufferedConsumerFactory.lambda$onStartFunction$1(JdbcBufferedConsumerFactory.java:151) ~[io.airbyte.airbyte-integrations.bases-bases-destination-jdbc-24.0.2.jar:?]
+	at io.airbyte.commons.concurrency.VoidCallable.call(VoidCallable.java:15) ~[io.airbyte-airbyte-commons-24.0.2.jar:?]
+	at io.airbyte.integrations.destination.buffered_stream_consumer.BufferedStreamConsumer.startTracked(BufferedStreamConsumer.java:145) ~[io.airbyte.airbyte-integrations.bases-base-java-24.0.2.jar:?]
+	at io.airbyte.integrations.base.FailureTrackingAirbyteMessageConsumer.start(FailureTrackingAirbyteMessageConsumer.java:43) ~[io.airbyte.airbyte-integrations.bases-base-java-24.0.2.jar:?]
+	at io.airbyte.integrations.base.AirbyteMessageConsumer$1.start(AirbyteMessageConsumer.java:60) ~[io.airbyte.airbyte-integrations.bases-base-java-24.0.2.jar:?]
+	at io.airbyte.integrations.base.Destination$ShimToSerializedAirbyteMessageConsumer.start(Destination.java:75) ~[io.airbyte.airbyte-integrations.bases-base-java-24.0.2.jar:?]
+	at io.airbyte.integrations.base.IntegrationRunner.consumeWriteStream(IntegrationRunner.java:221) ~[io.airbyte.airbyte-integrations.bases-base-java-24.0.2.jar:?]
+	at io.airbyte.integrations.base.IntegrationRunner.consumeWriteStream(IntegrationRunner.java:212) ~[io.airbyte.airbyte-integrations.bases-base-java-24.0.2.jar:?]
+	at io.airbyte.integrations.base.IntegrationRunner.lambda$runInternal$0(IntegrationRunner.java:151) ~[io.airbyte.airbyte-integrations.bases-base-java-24.0.2.jar:?]
+	at io.airbyte.integrations.base.IntegrationRunner.watchForOrphanThreads(IntegrationRunner.java:270) ~[io.airbyte.airbyte-integrations.bases-base-java-24.0.2.jar:?]
+	at io.airbyte.integrations.base.IntegrationRunner.runInternal(IntegrationRunner.java:155) ~[io.airbyte.airbyte-integrations.bases-base-java-24.0.2.jar:?]
+	at io.airbyte.integrations.base.IntegrationRunner.run(IntegrationRunner.java:99) ~[io.airbyte.airbyte-integrations.bases-base-java-24.0.2.jar:?]
+	at io.airbyte.integrations.destination.clickhouse.ClickhouseDestination.main(ClickhouseDestination.java:114) ~[io.airbyte.airbyte-integrations.connectors-destination-clickhouse-24.0.2.jar:?]
+Caused by: java.sql.SQLException: Connection refused, server ClickHouseNode [uri=http://localhost:8123/rembo, options={socket_timeout=3000000}]
+	at com.clickhouse.jdbc.SqlExceptionUtils.handle(SqlExceptionUtils.java:55) ~[clickhouse-jdbc-0.3.2-patch10-all.jar:clickhouse-jdbc 0.3.2-patch10 (revision: aebad16)]
+	at com.clickhouse.jdbc.SqlExceptionUtils.handle(SqlExceptionUtils.java:70) ~[clickhouse-jdbc-0.3.2-patch10-all.jar:clickhouse-jdbc 0.3.2-patch10 (revision: aebad16)]
+	at com.clickhouse.jdbc.internal.ClickHouseConnectionImpl.getServerInfo(ClickHouseConnectionImpl.java:86) ~[clickhouse-jdbc-0.3.2-patch10-all.jar:clickhouse-jdbc 0.3.2-patch10 (revision: aebad16)]
+	at com.clickhouse.jdbc.internal.ClickHouseConnectionImpl.<init>(ClickHouseConnectionImpl.java:244) ~[clickhouse-jdbc-0.3.2-patch10-all.jar:clickhouse-jdbc 0.3.2-patch10 (revision: aebad16)]
+	at com.clickhouse.jdbc.internal.ClickHouseConnectionImpl.<init>(ClickHouseConnectionImpl.java:214) ~[clickhouse-jdbc-0.3.2-patch10-all.jar:clickhouse-jdbc 0.3.2-patch10 (revision: aebad16)]
+	at com.clickhouse.jdbc.ClickHouseDriver.connect(ClickHouseDriver.java:145) ~[clickhouse-jdbc-0.3.2-patch10-all.jar:clickhouse-jdbc 0.3.2-patch10 (revision: aebad16)]
+	at com.clickhouse.jdbc.ClickHouseDriver.connect(ClickHouseDriver.java:41) ~[clickhouse-jdbc-0.3.2-patch10-all.jar:clickhouse-jdbc 0.3.2-patch10 (revision: aebad16)]
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138) ~[HikariCP-5.0.1.jar:?]
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:359) ~[HikariCP-5.0.1.jar:?]
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:201) ~[HikariCP-5.0.1.jar:?]
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:470) ~[HikariCP-5.0.1.jar:?]
+	at com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:733) ~[HikariCP-5.0.1.jar:?]
+	at com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:712) ~[HikariCP-5.0.1.jar:?]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:264) ~[?:?]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136) ~[?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) ~[?:?]
+	at java.lang.Thread.run(Thread.java:833) ~[?:?]
+Caused by: java.net.ConnectException: Connection refused
+	at sun.nio.ch.Net.pollConnect(Native Method) ~[?:?]
+	at sun.nio.ch.Net.pollConnectNow(Net.java:672) ~[?:?]
+	at sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:542) ~[?:?]
+	at sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:597) ~[?:?]
+	at java.net.Socket.connect(Socket.java:633) ~[?:?]
+	at sun.net.NetworkClient.doConnect(NetworkClient.java:178) ~[?:?]
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:532) ~[?:?]
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:637) ~[?:?]
+	at sun.net.www.http.HttpClient.<init>(HttpClient.java:280) ~[?:?]
+	at sun.net.www.http.HttpClient.New(HttpClient.java:385) ~[?:?]
+	at sun.net.www.http.HttpClient.New(HttpClient.java:407) ~[?:?]
+	at sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(HttpURLConnection.java:1309) ~[?:?]
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1242) ~[?:?]
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:1128) ~[?:?]
+	at sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:1057) ~[?:?]
+	at sun.net.www.protocol.http.HttpURLConnection.getOutputStream0(HttpURLConnection.java:1430) ~[?:?]
+	at sun.net.www.protocol.http.HttpURLConnection.getOutputStream(HttpURLConnection.java:1401) ~[?:?]
+	at com.clickhouse.client.http.HttpUrlConnectionImpl.post(HttpUrlConnectionImpl.java:226) ~[clickhouse-jdbc-0.3.2-patch10-all.jar:clickhouse-jdbc 0.3.2-patch10 (revision: aebad16)]
+	at com.clickhouse.client.http.ClickHouseHttpClient.send(ClickHouseHttpClient.java:101) ~[clickhouse-jdbc-0.3.2-patch10-all.jar:clickhouse-jdbc 0.3.2-patch10 (revision: aebad16)]
+	at com.clickhouse.client.AbstractClient.execute(AbstractClient.java:296) ~[clickhouse-jdbc-0.3.2-patch10-all.jar:clickhouse-jdbc 0.3.2-patch10 (revision: aebad16)]
+	at com.clickhouse.client.ClickHouseClientBuilder$Agent.sendOnce(ClickHouseClientBuilder.java:191) ~[clickhouse-jdbc-0.3.2-patch10-all.jar:clickhouse-jdbc 0.3.2-patch10 (revision: aebad16)]
+	at com.clickhouse.client.ClickHouseClientBuilder$Agent.send(ClickHouseClientBuilder.java:202) ~[clickhouse-jdbc-0.3.2-patch10-all.jar:clickhouse-jdbc 0.3.2-patch10 (revision: aebad16)]
+	at com.clickhouse.client.ClickHouseClientBuilder$Agent.execute(ClickHouseClientBuilder.java:234) ~[clickhouse-jdbc-0.3.2-patch10-all.jar:clickhouse-jdbc 0.3.2-patch10 (revision: aebad16)]
+	at com.clickhouse.client.ClickHouseRequest.execute(ClickHouseRequest.java:1748) ~[clickhouse-jdbc-0.3.2-patch10-all.jar:clickhouse-jdbc 0.3.2-patch10 (revision: aebad16)]
+	at com.clickhouse.jdbc.internal.ClickHouseConnectionImpl.getServerInfo(ClickHouseConnectionImpl.java:79) ~[clickhouse-jdbc-0.3.2-patch10-all.jar:clickhouse-jdbc 0.3.2-patch10 (revision: aebad16)]
+	at com.clickhouse.jdbc.internal.ClickHouseConnectionImpl.<init>(ClickHouseConnectionImpl.java:244) ~[clickhouse-jdbc-0.3.2-patch10-all.jar:clickhouse-jdbc 0.3.2-patch10 (revision: aebad16)]
+	at com.clickhouse.jdbc.internal.ClickHouseConnectionImpl.<init>(ClickHouseConnectionImpl.java:214) ~[clickhouse-jdbc-0.3.2-patch10-all.jar:clickhouse-jdbc 0.3.2-patch10 (revision: aebad16)]
+	at com.clickhouse.jdbc.ClickHouseDriver.connect(ClickHouseDriver.java:145) ~[clickhouse-jdbc-0.3.2-patch10-all.jar:clickhouse-jdbc 0.3.2-patch10 (revision: aebad16)]
+	at com.clickhouse.jdbc.ClickHouseDriver.connect(ClickHouseDriver.java:41) ~[clickhouse-jdbc-0.3.2-patch10-all.jar:clickhouse-jdbc 0.3.2-patch10 (revision: aebad16)]
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138) ~[HikariCP-5.0.1.jar:?]
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:359) ~[HikariCP-5.0.1.jar:?]
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:201) ~[HikariCP-5.0.1.jar:?]
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:470) ~[HikariCP-5.0.1.jar:?]
+	at com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:733) ~[HikariCP-5.0.1.jar:?]
+	at com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:712) ~[HikariCP-5.0.1.jar:?]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:264) ~[?:?]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136) ~[?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) ~[?:?]
+	at java.lang.Thread.run(Thread.java:833) ~[?:?]
+
+Stack Trace: java.sql.SQLTransientConnectionException: HikariPool-1 - Connection is not available, request timed out after 60007ms.
+	at com.zaxxer.hikari.pool.HikariPool.createTimeoutException(HikariPool.java:696)
+	at com.zaxxer.hikari.pool.HikariPool.getConnection(HikariPool.java:181)
+	at com.zaxxer.hikari.pool.HikariPool.getConnection(HikariPool.java:146)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:100)
+	at io.airbyte.db.jdbc.DefaultJdbcDatabase.execute(DefaultJdbcDatabase.java:45)
+	at io.airbyte.db.jdbc.JdbcDatabase.execute(JdbcDatabase.java:49)
+	at io.airbyte.integrations.destination.clickhouse.ClickhouseSqlOperations.createSchemaIfNotExists(ClickhouseSqlOperations.java:28)
+	at io.airbyte.integrations.destination.jdbc.JdbcBufferedConsumerFactory.lambda$onStartFunction$1(JdbcBufferedConsumerFactory.java:151)
+	at io.airbyte.commons.concurrency.VoidCallable.call(VoidCallable.java:15)
+	at io.airbyte.integrations.destination.buffered_stream_consumer.BufferedStreamConsumer.startTracked(BufferedStreamConsumer.java:145)
+	at io.airbyte.integrations.base.FailureTrackingAirbyteMessageConsumer.start(FailureTrackingAirbyteMessageConsumer.java:43)
+	at io.airbyte.integrations.base.AirbyteMessageConsumer$1.start(AirbyteMessageConsumer.java:60)
+	at io.airbyte.integrations.base.Destination$ShimToSerializedAirbyteMessageConsumer.start(Destination.java:75)
+	at io.airbyte.integrations.base.IntegrationRunner.consumeWriteStream(IntegrationRunner.java:221)
+	at io.airbyte.integrations.base.IntegrationRunner.consumeWriteStream(IntegrationRunner.java:212)
+	at io.airbyte.integrations.base.IntegrationRunner.lambda$runInternal$0(IntegrationRunner.java:151)
+	at io.airbyte.integrations.base.IntegrationRunner.watchForOrphanThreads(IntegrationRunner.java:270)
+	at io.airbyte.integrations.base.IntegrationRunner.runInternal(IntegrationRunner.java:155)
+	at io.airbyte.integrations.base.IntegrationRunner.run(IntegrationRunner.java:99)
+	at io.airbyte.integrations.destination.clickhouse.ClickhouseDestination.main(ClickhouseDestination.java:114)
+Caused by: java.sql.SQLException: Connection refused, server ClickHouseNode [uri=http://localhost:8123/rembo, options={socket_timeout=3000000}]
+	at com.clickhouse.jdbc.SqlExceptionUtils.handle(SqlExceptionUtils.java:55)
+	at com.clickhouse.jdbc.SqlExceptionUtils.handle(SqlExceptionUtils.java:70)
+	at com.clickhouse.jdbc.internal.ClickHouseConnectionImpl.getServerInfo(ClickHouseConnectionImpl.java:86)
+	at com.clickhouse.jdbc.internal.ClickHouseConnectionImpl.<init>(ClickHouseConnectionImpl.java:244)
+	at com.clickhouse.jdbc.internal.ClickHouseConnectionImpl.<init>(ClickHouseConnectionImpl.java:214)
+	at com.clickhouse.jdbc.ClickHouseDriver.connect(ClickHouseDriver.java:145)
+	at com.clickhouse.jdbc.ClickHouseDriver.connect(ClickHouseDriver.java:41)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:359)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:201)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:470)
+	at com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:733)
+	at com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:712)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: java.net.ConnectException: Connection refused
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672)
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:542)
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:597)
+	at java.base/java.net.Socket.connect(Socket.java:633)
+	at java.base/sun.net.NetworkClient.doConnect(NetworkClient.java:178)
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:532)
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:637)
+	at java.base/sun.net.www.http.HttpClient.<init>(HttpClient.java:280)
+	at java.base/sun.net.www.http.HttpClient.New(HttpClient.java:385)
+	at java.base/sun.net.www.http.HttpClient.New(HttpClient.java:407)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(HttpURLConnection.java:1309)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1242)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:1128)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:1057)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getOutputStream0(HttpURLConnection.java:1430)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getOutputStream(HttpURLConnection.java:1401)
+	at com.clickhouse.client.http.HttpUrlConnectionImpl.post(HttpUrlConnectionImpl.java:226)
+	at com.clickhouse.client.http.ClickHouseHttpClient.send(ClickHouseHttpClient.java:101)
+	at com.clickhouse.client.AbstractClient.execute(AbstractClient.java:296)
+	at com.clickhouse.client.ClickHouseClientBuilder$Agent.sendOnce(ClickHouseClientBuilder.java:191)
+	at com.clickhouse.client.ClickHouseClientBuilder$Agent.send(ClickHouseClientBuilder.java:202)
+	at com.clickhouse.client.ClickHouseClientBuilder$Agent.execute(ClickHouseClientBuilder.java:234)
+	at com.clickhouse.client.ClickHouseRequest.execute(ClickHouseRequest.java:1748)
+	at com.clickhouse.jdbc.internal.ClickHouseConnectionImpl.getServerInfo(ClickHouseConnectionImpl.java:79)
+	... 14 more
+
+2024-02-26 22:29:16 [43mdestination[0m > WARN i.a.i.b.FailureTrackingAirbyteMessageConsumer(close):78 Airbyte message consumer: failed.
+2024-02-26 22:29:16 [43mdestination[0m > ERROR i.a.i.d.b.BufferedStreamConsumer(close):253 executing on failed close procedure.
+2024-02-26 22:29:16 [43mdestination[0m > ERROR i.a.i.b.AirbyteExceptionHandler(uncaughtException):26 Something went wrong in the connector. See the logs for more details. java.sql.SQLTransientConnectionException: HikariPool-1 - Connection is not available, request timed out after 60007ms.
+	at com.zaxxer.hikari.pool.HikariPool.createTimeoutException(HikariPool.java:696) ~[HikariCP-5.0.1.jar:?]
+	at com.zaxxer.hikari.pool.HikariPool.getConnection(HikariPool.java:181) ~[HikariCP-5.0.1.jar:?]
+	at com.zaxxer.hikari.pool.HikariPool.getConnection(HikariPool.java:146) ~[HikariCP-5.0.1.jar:?]
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:100) ~[HikariCP-5.0.1.jar:?]
+	at io.airbyte.db.jdbc.DefaultJdbcDatabase.execute(DefaultJdbcDatabase.java:45) ~[io.airbyte.airbyte-db-db-lib-24.0.2.jar:?]
+	at io.airbyte.db.jdbc.JdbcDatabase.execute(JdbcDatabase.java:49) ~[io.airbyte.airbyte-db-db-lib-24.0.2.jar:?]
+	at io.airbyte.integrations.destination.clickhouse.ClickhouseSqlOperations.createSchemaIfNotExists(ClickhouseSqlOperations.java:28) ~[io.airbyte.airbyte-integrations.connectors-destination-clickhouse-24.0.2.jar:?]
+	at io.airbyte.integrations.destination.jdbc.JdbcBufferedConsumerFactory.lambda$onStartFunction$1(JdbcBufferedConsumerFactory.java:151) ~[io.airbyte.airbyte-integrations.bases-bases-destination-jdbc-24.0.2.jar:?]
+	at io.airbyte.commons.concurrency.VoidCallable.call(VoidCallable.java:15) ~[io.airbyte-airbyte-commons-24.0.2.jar:?]
+	at io.airbyte.integrations.destination.buffered_stream_consumer.BufferedStreamConsumer.startTracked(BufferedStreamConsumer.java:145) ~[io.airbyte.airbyte-integrations.bases-base-java-24.0.2.jar:?]
+	at io.airbyte.integrations.base.FailureTrackingAirbyteMessageConsumer.start(FailureTrackingAirbyteMessageConsumer.java:43) ~[io.airbyte.airbyte-integrations.bases-base-java-24.0.2.jar:?]
+	at io.airbyte.integrations.base.AirbyteMessageConsumer$1.start(AirbyteMessageConsumer.java:60) ~[io.airbyte.airbyte-integrations.bases-base-java-24.0.2.jar:?]
+	at io.airbyte.integrations.base.Destination$ShimToSerializedAirbyteMessageConsumer.start(Destination.java:75) ~[io.airbyte.airbyte-integrations.bases-base-java-24.0.2.jar:?]
+	at io.airbyte.integrations.base.IntegrationRunner.consumeWriteStream(IntegrationRunner.java:221) ~[io.airbyte.airbyte-integrations.bases-base-java-24.0.2.jar:?]
+	at io.airbyte.integrations.base.IntegrationRunner.consumeWriteStream(IntegrationRunner.java:212) ~[io.airbyte.airbyte-integrations.bases-base-java-24.0.2.jar:?]
+	at io.airbyte.integrations.base.IntegrationRunner.lambda$runInternal$0(IntegrationRunner.java:151) ~[io.airbyte.airbyte-integrations.bases-base-java-24.0.2.jar:?]
+	at io.airbyte.integrations.base.IntegrationRunner.watchForOrphanThreads(IntegrationRunner.java:270) ~[io.airbyte.airbyte-integrations.bases-base-java-24.0.2.jar:?]
+	at io.airbyte.integrations.base.IntegrationRunner.runInternal(IntegrationRunner.java:155) ~[io.airbyte.airbyte-integrations.bases-base-java-24.0.2.jar:?]
+	at io.airbyte.integrations.base.IntegrationRunner.run(IntegrationRunner.java:99) ~[io.airbyte.airbyte-integrations.bases-base-java-24.0.2.jar:?]
+	at io.airbyte.integrations.destination.clickhouse.ClickhouseDestination.main(ClickhouseDestination.java:114) ~[io.airbyte.airbyte-integrations.connectors-destination-clickhouse-24.0.2.jar:?]
+Caused by: java.sql.SQLException: Connection refused, server ClickHouseNode [uri=http://localhost:8123/rembo, options={socket_timeout=3000000}]
+	at com.clickhouse.jdbc.SqlExceptionUtils.handle(SqlExceptionUtils.java:55) ~[clickhouse-jdbc-0.3.2-patch10-all.jar:clickhouse-jdbc 0.3.2-patch10 (revision: aebad16)]
+	at com.clickhouse.jdbc.SqlExceptionUtils.handle(SqlExceptionUtils.java:70) ~[clickhouse-jdbc-0.3.2-patch10-all.jar:clickhouse-jdbc 0.3.2-patch10 (revision: aebad16)]
+	at com.clickhouse.jdbc.internal.ClickHouseConnectionImpl.getServerInfo(ClickHouseConnectionImpl.java:86) ~[clickhouse-jdbc-0.3.2-patch10-all.jar:clickhouse-jdbc 0.3.2-patch10 (revision: aebad16)]
+	at com.clickhouse.jdbc.internal.ClickHouseConnectionImpl.<init>(ClickHouseConnectionImpl.java:244) ~[clickhouse-jdbc-0.3.2-patch10-all.jar:clickhouse-jdbc 0.3.2-patch10 (revision: aebad16)]
+	at com.clickhouse.jdbc.internal.ClickHouseConnectionImpl.<init>(ClickHouseConnectionImpl.java:214) ~[clickhouse-jdbc-0.3.2-patch10-all.jar:clickhouse-jdbc 0.3.2-patch10 (revision: aebad16)]
+	at com.clickhouse.jdbc.ClickHouseDriver.connect(ClickHouseDriver.java:145) ~[clickhouse-jdbc-0.3.2-patch10-all.jar:clickhouse-jdbc 0.3.2-patch10 (revision: aebad16)]
+	at com.clickhouse.jdbc.ClickHouseDriver.connect(ClickHouseDriver.java:41) ~[clickhouse-jdbc-0.3.2-patch10-all.jar:clickhouse-jdbc 0.3.2-patch10 (revision: aebad16)]
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138) ~[HikariCP-5.0.1.jar:?]
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:359) ~[HikariCP-5.0.1.jar:?]
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:201) ~[HikariCP-5.0.1.jar:?]
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:470) ~[HikariCP-5.0.1.jar:?]
+	at com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:733) ~[HikariCP-5.0.1.jar:?]
+	at com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:712) ~[HikariCP-5.0.1.jar:?]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:264) ~[?:?]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136) ~[?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) ~[?:?]
+	at java.lang.Thread.run(Thread.java:833) ~[?:?]
+Caused by: java.net.ConnectException: Connection refused
+	at sun.nio.ch.Net.pollConnect(Native Method) ~[?:?]
+	at sun.nio.ch.Net.pollConnectNow(Net.java:672) ~[?:?]
+	at sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:542) ~[?:?]
+	at sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:597) ~[?:?]
+	at java.net.Socket.connect(Socket.java:633) ~[?:?]
+	at sun.net.NetworkClient.doConnect(NetworkClient.java:178) ~[?:?]
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:532) ~[?:?]
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:637) ~[?:?]
+	at sun.net.www.http.HttpClient.<init>(HttpClient.java:280) ~[?:?]
+	at sun.net.www.http.HttpClient.New(HttpClient.java:385) ~[?:?]
+	at sun.net.www.http.HttpClient.New(HttpClient.java:407) ~[?:?]
+	at sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(HttpURLConnection.java:1309) ~[?:?]
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1242) ~[?:?]
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:1128) ~[?:?]
+	at sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:1057) ~[?:?]
+	at sun.net.www.protocol.http.HttpURLConnection.getOutputStream0(HttpURLConnection.java:1430) ~[?:?]
+	at sun.net.www.protocol.http.HttpURLConnection.getOutputStream(HttpURLConnection.java:1401) ~[?:?]
+	at com.clickhouse.client.http.HttpUrlConnectionImpl.post(HttpUrlConnectionImpl.java:226) ~[clickhouse-jdbc-0.3.2-patch10-all.jar:clickhouse-jdbc 0.3.2-patch10 (revision: aebad16)]
+	at com.clickhouse.client.http.ClickHouseHttpClient.send(ClickHouseHttpClient.java:101) ~[clickhouse-jdbc-0.3.2-patch10-all.jar:clickhouse-jdbc 0.3.2-patch10 (revision: aebad16)]
+	at com.clickhouse.client.AbstractClient.execute(AbstractClient.java:296) ~[clickhouse-jdbc-0.3.2-patch10-all.jar:clickhouse-jdbc 0.3.2-patch10 (revision: aebad16)]
+	at com.clickhouse.client.ClickHouseClientBuilder$Agent.sendOnce(ClickHouseClientBuilder.java:191) ~[clickhouse-jdbc-0.3.2-patch10-all.jar:clickhouse-jdbc 0.3.2-patch10 (revision: aebad16)]
+	at com.clickhouse.client.ClickHouseClientBuilder$Agent.send(ClickHouseClientBuilder.java:202) ~[clickhouse-jdbc-0.3.2-patch10-all.jar:clickhouse-jdbc 0.3.2-patch10 (revision: aebad16)]
+	at com.clickhouse.client.ClickHouseClientBuilder$Agent.execute(ClickHouseClientBuilder.java:234) ~[clickhouse-jdbc-0.3.2-patch10-all.jar:clickhouse-jdbc 0.3.2-patch10 (revision: aebad16)]
+	at com.clickhouse.client.ClickHouseRequest.execute(ClickHouseRequest.java:1748) ~[clickhouse-jdbc-0.3.2-patch10-all.jar:clickhouse-jdbc 0.3.2-patch10 (revision: aebad16)]
+	at com.clickhouse.jdbc.internal.ClickHouseConnectionImpl.getServerInfo(ClickHouseConnectionImpl.java:79) ~[clickhouse-jdbc-0.3.2-patch10-all.jar:clickhouse-jdbc 0.3.2-patch10 (revision: aebad16)]
+	at com.clickhouse.jdbc.internal.ClickHouseConnectionImpl.<init>(ClickHouseConnectionImpl.java:244) ~[clickhouse-jdbc-0.3.2-patch10-all.jar:clickhouse-jdbc 0.3.2-patch10 (revision: aebad16)]
+	at com.clickhouse.jdbc.internal.ClickHouseConnectionImpl.<init>(ClickHouseConnectionImpl.java:214) ~[clickhouse-jdbc-0.3.2-patch10-all.jar:clickhouse-jdbc 0.3.2-patch10 (revision: aebad16)]
+	at com.clickhouse.jdbc.ClickHouseDriver.connect(ClickHouseDriver.java:145) ~[clickhouse-jdbc-0.3.2-patch10-all.jar:clickhouse-jdbc 0.3.2-patch10 (revision: aebad16)]
+	at com.clickhouse.jdbc.ClickHouseDriver.connect(ClickHouseDriver.java:41) ~[clickhouse-jdbc-0.3.2-patch10-all.jar:clickhouse-jdbc 0.3.2-patch10 (revision: aebad16)]
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138) ~[HikariCP-5.0.1.jar:?]
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:359) ~[HikariCP-5.0.1.jar:?]
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:201) ~[HikariCP-5.0.1.jar:?]
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:470) ~[HikariCP-5.0.1.jar:?]
+	at com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:733) ~[HikariCP-5.0.1.jar:?]
+	at com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:712) ~[HikariCP-5.0.1.jar:?]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:264) ~[?:?]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136) ~[?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) ~[?:?]
+	at java.lang.Thread.run(Thread.java:833) ~[?:?]
+
+Stack Trace: java.sql.SQLTransientConnectionException: HikariPool-1 - Connection is not available, request timed out after 60007ms.
+	at com.zaxxer.hikari.pool.HikariPool.createTimeoutException(HikariPool.java:696)
+	at com.zaxxer.hikari.pool.HikariPool.getConnection(HikariPool.java:181)
+	at com.zaxxer.hikari.pool.HikariPool.getConnection(HikariPool.java:146)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:100)
+	at io.airbyte.db.jdbc.DefaultJdbcDatabase.execute(DefaultJdbcDatabase.java:45)
+	at io.airbyte.db.jdbc.JdbcDatabase.execute(JdbcDatabase.java:49)
+	at io.airbyte.integrations.destination.clickhouse.ClickhouseSqlOperations.createSchemaIfNotExists(ClickhouseSqlOperations.java:28)
+	at io.airbyte.integrations.destination.jdbc.JdbcBufferedConsumerFactory.lambda$onStartFunction$1(JdbcBufferedConsumerFactory.java:151)
+	at io.airbyte.commons.concurrency.VoidCallable.call(VoidCallable.java:15)
+	at io.airbyte.integrations.destination.buffered_stream_consumer.BufferedStreamConsumer.startTracked(BufferedStreamConsumer.java:145)
+	at io.airbyte.integrations.base.FailureTrackingAirbyteMessageConsumer.start(FailureTrackingAirbyteMessageConsumer.java:43)
+	at io.airbyte.integrations.base.AirbyteMessageConsumer$1.start(AirbyteMessageConsumer.java:60)
+	at io.airbyte.integrations.base.Destination$ShimToSerializedAirbyteMessageConsumer.start(Destination.java:75)
+	at io.airbyte.integrations.base.IntegrationRunner.consumeWriteStream(IntegrationRunner.java:221)
+	at io.airbyte.integrations.base.IntegrationRunner.consumeWriteStream(IntegrationRunner.java:212)
+	at io.airbyte.integrations.base.IntegrationRunner.lambda$runInternal$0(IntegrationRunner.java:151)
+	at io.airbyte.integrations.base.IntegrationRunner.watchForOrphanThreads(IntegrationRunner.java:270)
+	at io.airbyte.integrations.base.IntegrationRunner.runInternal(IntegrationRunner.java:155)
+	at io.airbyte.integrations.base.IntegrationRunner.run(IntegrationRunner.java:99)
+	at io.airbyte.integrations.destination.clickhouse.ClickhouseDestination.main(ClickhouseDestination.java:114)
+Caused by: java.sql.SQLException: Connection refused, server ClickHouseNode [uri=http://localhost:8123/rembo, options={socket_timeout=3000000}]
+	at com.clickhouse.jdbc.SqlExceptionUtils.handle(SqlExceptionUtils.java:55)
+	at com.clickhouse.jdbc.SqlExceptionUtils.handle(SqlExceptionUtils.java:70)
+	at com.clickhouse.jdbc.internal.ClickHouseConnectionImpl.getServerInfo(ClickHouseConnectionImpl.java:86)
+	at com.clickhouse.jdbc.internal.ClickHouseConnectionImpl.<init>(ClickHouseConnectionImpl.java:244)
+	at com.clickhouse.jdbc.internal.ClickHouseConnectionImpl.<init>(ClickHouseConnectionImpl.java:214)
+	at com.clickhouse.jdbc.ClickHouseDriver.connect(ClickHouseDriver.java:145)
+	at com.clickhouse.jdbc.ClickHouseDriver.connect(ClickHouseDriver.java:41)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:359)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:201)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:470)
+	at com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:733)
+	at com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:712)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: java.net.ConnectException: Connection refused
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672)
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:542)
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:597)
+	at java.base/java.net.Socket.connect(Socket.java:633)
+	at java.base/sun.net.NetworkClient.doConnect(NetworkClient.java:178)
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:532)
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:637)
+	at java.base/sun.net.www.http.HttpClient.<init>(HttpClient.java:280)
+	at java.base/sun.net.www.http.HttpClient.New(HttpClient.java:385)
+	at java.base/sun.net.www.http.HttpClient.New(HttpClient.java:407)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(HttpURLConnection.java:1309)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1242)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:1128)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:1057)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getOutputStream0(HttpURLConnection.java:1430)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getOutputStream(HttpURLConnection.java:1401)
+	at com.clickhouse.client.http.HttpUrlConnectionImpl.post(HttpUrlConnectionImpl.java:226)
+	at com.clickhouse.client.http.ClickHouseHttpClient.send(ClickHouseHttpClient.java:101)
+	at com.clickhouse.client.AbstractClient.execute(AbstractClient.java:296)
+	at com.clickhouse.client.ClickHouseClientBuilder$Agent.sendOnce(ClickHouseClientBuilder.java:191)
+	at com.clickhouse.client.ClickHouseClientBuilder$Agent.send(ClickHouseClientBuilder.java:202)
+	at com.clickhouse.client.ClickHouseClientBuilder$Agent.execute(ClickHouseClientBuilder.java:234)
+	at com.clickhouse.client.ClickHouseRequest.execute(ClickHouseRequest.java:1748)
+	at com.clickhouse.jdbc.internal.ClickHouseConnectionImpl.getServerInfo(ClickHouseConnectionImpl.java:79)
+	... 14 more
+
+2024-02-26 22:29:16 [46mplatform[0m > readFromDestination: exception caught
+io.airbyte.workers.internal.exception.DestinationException: Destination process exited with non-zero exit code 1
+	at io.airbyte.workers.general.BufferedReplicationWorker.readFromDestination(BufferedReplicationWorker.java:478) ~[io.airbyte-airbyte-commons-worker-0.50.50.jar:?]
+	at io.airbyte.workers.general.BufferedReplicationWorker.lambda$runAsync$2(BufferedReplicationWorker.java:228) ~[io.airbyte-airbyte-commons-worker-0.50.50.jar:?]
+	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1804) ~[?:?]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144) ~[?:?]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642) ~[?:?]
+	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
+2024-02-26 22:29:16 [46mplatform[0m > readFromDestination: done. (writeToDestFailed:true, dest.isFinished:true)
+2024-02-26 22:29:16 [46mplatform[0m > writeToDestination: exception caught
+java.io.IOException: Stream closed
+	at java.base/java.lang.ProcessBuilder$NullOutputStream.write(ProcessBuilder.java:447) ~[?:?]
+	at java.base/java.io.OutputStream.write(OutputStream.java:167) ~[?:?]
+	at java.base/java.io.BufferedOutputStream.implWrite(BufferedOutputStream.java:217) ~[?:?]
+	at java.base/java.io.BufferedOutputStream.write(BufferedOutputStream.java:206) ~[?:?]
+	at java.base/sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) ~[?:?]
+	at java.base/sun.nio.cs.StreamEncoder.implFlushBuffer(StreamEncoder.java:405) ~[?:?]
+	at java.base/sun.nio.cs.StreamEncoder.implFlush(StreamEncoder.java:410) ~[?:?]
+	at java.base/sun.nio.cs.StreamEncoder.lockedFlush(StreamEncoder.java:214) ~[?:?]
+	at java.base/sun.nio.cs.StreamEncoder.flush(StreamEncoder.java:201) ~[?:?]
+	at java.base/java.io.OutputStreamWriter.flush(OutputStreamWriter.java:262) ~[?:?]
+	at java.base/java.io.BufferedWriter.implFlush(BufferedWriter.java:372) ~[?:?]
+	at java.base/java.io.BufferedWriter.flush(BufferedWriter.java:359) ~[?:?]
+	at io.airbyte.workers.internal.DefaultAirbyteMessageBufferedWriter.flush(DefaultAirbyteMessageBufferedWriter.java:31) ~[io.airbyte-airbyte-commons-worker-0.50.50.jar:?]
+	at io.airbyte.workers.internal.DefaultAirbyteDestination.notifyEndOfInputWithNoTimeoutMonitor(DefaultAirbyteDestination.java:145) ~[io.airbyte-airbyte-commons-worker-0.50.50.jar:?]
+	at io.airbyte.workers.internal.DefaultAirbyteDestination.notifyEndOfInput(DefaultAirbyteDestination.java:135) ~[io.airbyte-airbyte-commons-worker-0.50.50.jar:?]
+	at io.airbyte.workers.general.BufferedReplicationWorker.writeToDestination(BufferedReplicationWorker.java:443) ~[io.airbyte-airbyte-commons-worker-0.50.50.jar:?]
+	at io.airbyte.workers.general.BufferedReplicationWorker.lambda$runAsyncWithTimeout$5(BufferedReplicationWorker.java:256) ~[io.airbyte-airbyte-commons-worker-0.50.50.jar:?]
+	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1804) ~[?:?]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144) ~[?:?]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642) ~[?:?]
+	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
+2024-02-26 22:29:16 [46mplatform[0m > writeToDestination: done. (forDest.isDone:false, isDestRunning:false)
+2024-02-26 22:29:17 [46mplatform[0m > processMessage: done. (fromSource.isDone:false, forDest.isClosed:true)
+2024-02-26 22:29:17 [46mplatform[0m > readFromSource: exception caught
+java.lang.IllegalStateException: Source process is still alive, cannot retrieve exit value.
+	at com.google.common.base.Preconditions.checkState(Preconditions.java:502) ~[guava-31.1-jre.jar:?]
+	at io.airbyte.workers.internal.DefaultAirbyteSource.getExitValue(DefaultAirbyteSource.java:127) ~[io.airbyte-airbyte-commons-worker-0.50.50.jar:?]
+	at io.airbyte.workers.general.BufferedReplicationWorker.readFromSource(BufferedReplicationWorker.java:363) ~[io.airbyte-airbyte-commons-worker-0.50.50.jar:?]
+	at io.airbyte.workers.general.BufferedReplicationWorker.lambda$runAsyncWithHeartbeatCheck$3(BufferedReplicationWorker.java:235) ~[io.airbyte-airbyte-commons-worker-0.50.50.jar:?]
+	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1804) ~[?:?]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144) ~[?:?]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642) ~[?:?]
+	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
+2024-02-26 22:29:17 [46mplatform[0m > readFromSource: done. (source.isFinished:false, fromSource.isClosed:true)
+2024-02-26 22:30:17 [46mplatform[0m > airbyte-source gobbler IOException: Stream closed. Typically happens when cancelling a job.
+2024-02-26 22:30:17 [46mplatform[0m > sync summary: {
+  "status" : "failed",
+  "recordsSynced" : 0,
+  "bytesSynced" : 0,
+  "startTime" : 1708986490001,
+  "endTime" : 1708986617186,
+  "totalStats" : {
+    "bytesCommitted" : 0,
+    "bytesEmitted" : 2858301,
+    "destinationStateMessagesEmitted" : 0,
+    "destinationWriteEndTime" : 0,
+    "destinationWriteStartTime" : 1708986490005,
+    "meanSecondsBeforeSourceStateMessageEmitted" : 0,
+    "maxSecondsBeforeSourceStateMessageEmitted" : 0,
+    "maxSecondsBetweenStateMessageEmittedandCommitted" : 0,
+    "meanSecondsBetweenStateMessageEmittedandCommitted" : 0,
+    "recordsEmitted" : 5599,
+    "recordsCommitted" : 0,
+    "replicationEndTime" : 1708986617177,
+    "replicationStartTime" : 1708986490001,
+    "sourceReadEndTime" : 0,
+    "sourceReadStartTime" : 1708986490006,
+    "sourceStateMessagesEmitted" : 2
+  },
+  "streamStats" : [ {
+    "streamName" : "sales",
+    "streamNamespace" : "public",
+    "stats" : {
+      "bytesCommitted" : 0,
+      "bytesEmitted" : 2858301,
+      "recordsEmitted" : 5599,
+      "recordsCommitted" : 0
+    }
+  }, {
+    "streamName" : "employee",
+    "streamNamespace" : "public",
+    "stats" : {
+      "bytesCommitted" : 0,
+      "bytesEmitted" : 0,
+      "recordsEmitted" : 0,
+      "recordsCommitted" : 0
+    }
+  }, {
+    "streamName" : "sales_territory",
+    "streamNamespace" : "public",
+    "stats" : {
+      "bytesCommitted" : 0,
+      "bytesEmitted" : 0,
+      "recordsEmitted" : 0,
+      "recordsCommitted" : 0
+    }
+  } ],
+  "performanceMetrics" : {
+    "processFromSource" : {
+      "elapsedTimeInNanos" : 1356021995,
+      "executionCount" : 5609,
+      "avgExecTimeInNanos" : 241758.2447851667
+    },
+    "readFromSource" : {
+      "elapsedTimeInNanos" : 6672377783,
+      "executionCount" : 6611,
+      "avgExecTimeInNanos" : 1009284.1904401755
+    },
+    "processFromDest" : {
+      "elapsedTimeInNanos" : 3292208,
+      "executionCount" : 1,
+      "avgExecTimeInNanos" : 3292208.0
+    },
+    "writeToDest" : {
+      "elapsedTimeInNanos" : 60267333957,
+      "executionCount" : 4600,
+      "avgExecTimeInNanos" : 1.3101594338478262E7
+    },
+    "readFromDest" : {
+      "elapsedTimeInNanos" : 66673660778,
+      "executionCount" : 73,
+      "avgExecTimeInNanos" : 9.133378188767123E8
+    }
+  }
+}
+2024-02-26 22:30:17 [46mplatform[0m > failures: [ {
+  "failureOrigin" : "destination",
+  "failureType" : "system_error",
+  "internalMessage" : "java.sql.SQLTransientConnectionException: HikariPool-1 - Connection is not available, request timed out after 60007ms.",
+  "externalMessage" : "Something went wrong in the connector. See the logs for more details.",
+  "metadata" : {
+    "attemptNumber" : 0,
+    "jobId" : 13,
+    "from_trace_message" : true,
+    "connector_command" : "write"
+  },
+  "stacktrace" : "java.sql.SQLTransientConnectionException: HikariPool-1 - Connection is not available, request timed out after 60007ms.\n\tat com.zaxxer.hikari.pool.HikariPool.createTimeoutException(HikariPool.java:696)\n\tat com.zaxxer.hikari.pool.HikariPool.getConnection(HikariPool.java:181)\n\tat com.zaxxer.hikari.pool.HikariPool.getConnection(HikariPool.java:146)\n\tat com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:100)\n\tat io.airbyte.db.jdbc.DefaultJdbcDatabase.execute(DefaultJdbcDatabase.java:45)\n\tat io.airbyte.db.jdbc.JdbcDatabase.execute(JdbcDatabase.java:49)\n\tat io.airbyte.integrations.destination.clickhouse.ClickhouseSqlOperations.createSchemaIfNotExists(ClickhouseSqlOperations.java:28)\n\tat io.airbyte.integrations.destination.jdbc.JdbcBufferedConsumerFactory.lambda$onStartFunction$1(JdbcBufferedConsumerFactory.java:151)\n\tat io.airbyte.commons.concurrency.VoidCallable.call(VoidCallable.java:15)\n\tat io.airbyte.integrations.destination.buffered_stream_consumer.BufferedStreamConsumer.startTracked(BufferedStreamConsumer.java:145)\n\tat io.airbyte.integrations.base.FailureTrackingAirbyteMessageConsumer.start(FailureTrackingAirbyteMessageConsumer.java:43)\n\tat io.airbyte.integrations.base.AirbyteMessageConsumer$1.start(AirbyteMessageConsumer.java:60)\n\tat io.airbyte.integrations.base.Destination$ShimToSerializedAirbyteMessageConsumer.start(Destination.java:75)\n\tat io.airbyte.integrations.base.IntegrationRunner.consumeWriteStream(IntegrationRunner.java:221)\n\tat io.airbyte.integrations.base.IntegrationRunner.consumeWriteStream(IntegrationRunner.java:212)\n\tat io.airbyte.integrations.base.IntegrationRunner.lambda$runInternal$0(IntegrationRunner.java:151)\n\tat io.airbyte.integrations.base.IntegrationRunner.watchForOrphanThreads(IntegrationRunner.java:270)\n\tat io.airbyte.integrations.base.IntegrationRunner.runInternal(IntegrationRunner.java:155)\n\tat io.airbyte.integrations.base.IntegrationRunner.run(IntegrationRunner.java:99)\n\tat io.airbyte.integrations.destination.clickhouse.ClickhouseDestination.main(ClickhouseDestination.java:114)\nCaused by: java.sql.SQLException: Connection refused, server ClickHouseNode [uri=http://localhost:8123/rembo, options={socket_timeout=3000000}]\n\tat com.clickhouse.jdbc.SqlExceptionUtils.handle(SqlExceptionUtils.java:55)\n\tat com.clickhouse.jdbc.SqlExceptionUtils.handle(SqlExceptionUtils.java:70)\n\tat com.clickhouse.jdbc.internal.ClickHouseConnectionImpl.getServerInfo(ClickHouseConnectionImpl.java:86)\n\tat com.clickhouse.jdbc.internal.ClickHouseConnectionImpl.<init>(ClickHouseConnectionImpl.java:244)\n\tat com.clickhouse.jdbc.internal.ClickHouseConnectionImpl.<init>(ClickHouseConnectionImpl.java:214)\n\tat com.clickhouse.jdbc.ClickHouseDriver.connect(ClickHouseDriver.java:145)\n\tat com.clickhouse.jdbc.ClickHouseDriver.connect(ClickHouseDriver.java:41)\n\tat com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138)\n\tat com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:359)\n\tat com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:201)\n\tat com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:470)\n\tat com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:733)\n\tat com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:712)\n\tat java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)\n\tat java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)\n\tat java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)\n\tat java.base/java.lang.Thread.run(Thread.java:833)\nCaused by: java.net.ConnectException: Connection refused\n\tat java.base/sun.nio.ch.Net.pollConnect(Native Method)\n\tat java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672)\n\tat java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:542)\n\tat java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:597)\n\tat java.base/java.net.Socket.connect(Socket.java:633)\n\tat java.base/sun.net.NetworkClient.doConnect(NetworkClient.java:178)\n\tat java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:532)\n\tat java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:637)\n\tat java.base/sun.net.www.http.HttpClient.<init>(HttpClient.java:280)\n\tat java.base/sun.net.www.http.HttpClient.New(HttpClient.java:385)\n\tat java.base/sun.net.www.http.HttpClient.New(HttpClient.java:407)\n\tat java.base/sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(HttpURLConnection.java:1309)\n\tat java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1242)\n\tat java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:1128)\n\tat java.base/sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:1057)\n\tat java.base/sun.net.www.protocol.http.HttpURLConnection.getOutputStream0(HttpURLConnection.java:1430)\n\tat java.base/sun.net.www.protocol.http.HttpURLConnection.getOutputStream(HttpURLConnection.java:1401)\n\tat com.clickhouse.client.http.HttpUrlConnectionImpl.post(HttpUrlConnectionImpl.java:226)\n\tat com.clickhouse.client.http.ClickHouseHttpClient.send(ClickHouseHttpClient.java:101)\n\tat com.clickhouse.client.AbstractClient.execute(AbstractClient.java:296)\n\tat com.clickhouse.client.ClickHouseClientBuilder$Agent.sendOnce(ClickHouseClientBuilder.java:191)\n\tat com.clickhouse.client.ClickHouseClientBuilder$Agent.send(ClickHouseClientBuilder.java:202)\n\tat com.clickhouse.client.ClickHouseClientBuilder$Agent.execute(ClickHouseClientBuilder.java:234)\n\tat com.clickhouse.client.ClickHouseRequest.execute(ClickHouseRequest.java:1748)\n\tat com.clickhouse.jdbc.internal.ClickHouseConnectionImpl.getServerInfo(ClickHouseConnectionImpl.java:79)\n\t... 14 more\n",
+  "timestamp" : 1708986556789
+}, {
+  "failureOrigin" : "destination",
+  "internalMessage" : "Destination process exited with non-zero exit code 1",
+  "externalMessage" : "Something went wrong within the destination connector",
+  "metadata" : {
+    "attemptNumber" : 0,
+    "jobId" : 13,
+    "connector_command" : "write"
+  },
+  "stacktrace" : "io.airbyte.workers.internal.exception.DestinationException: Destination process exited with non-zero exit code 1\n\tat io.airbyte.workers.general.BufferedReplicationWorker.readFromDestination(BufferedReplicationWorker.java:478)\n\tat io.airbyte.workers.general.BufferedReplicationWorker.lambda$runAsync$2(BufferedReplicationWorker.java:228)\n\tat java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1804)\n\tat java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)\n\tat java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)\n\tat java.base/java.lang.Thread.run(Thread.java:1583)\n",
+  "timestamp" : 1708986556994
+}, {
+  "failureOrigin" : "destination",
+  "internalMessage" : "Destination process message delivery failed",
+  "externalMessage" : "Something went wrong within the destination connector",
+  "metadata" : {
+    "attemptNumber" : 0,
+    "jobId" : 13,
+    "connector_command" : "write"
+  },
+  "stacktrace" : "io.airbyte.workers.internal.exception.DestinationException: Destination process message delivery failed\n\tat io.airbyte.workers.general.BufferedReplicationWorker.writeToDestination(BufferedReplicationWorker.java:449)\n\tat io.airbyte.workers.general.BufferedReplicationWorker.lambda$runAsyncWithTimeout$5(BufferedReplicationWorker.java:256)\n\tat java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1804)\n\tat java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)\n\tat java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)\n\tat java.base/java.lang.Thread.run(Thread.java:1583)\nCaused by: java.io.IOException: Stream closed\n\tat java.base/java.lang.ProcessBuilder$NullOutputStream.write(ProcessBuilder.java:447)\n\tat java.base/java.io.OutputStream.write(OutputStream.java:167)\n\tat java.base/java.io.BufferedOutputStream.implWrite(BufferedOutputStream.java:217)\n\tat java.base/java.io.BufferedOutputStream.write(BufferedOutputStream.java:206)\n\tat java.base/sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309)\n\tat java.base/sun.nio.cs.StreamEncoder.implFlushBuffer(StreamEncoder.java:405)\n\tat java.base/sun.nio.cs.StreamEncoder.implFlush(StreamEncoder.java:410)\n\tat java.base/sun.nio.cs.StreamEncoder.lockedFlush(StreamEncoder.java:214)\n\tat java.base/sun.nio.cs.StreamEncoder.flush(StreamEncoder.java:201)\n\tat java.base/java.io.OutputStreamWriter.flush(OutputStreamWriter.java:262)\n\tat java.base/java.io.BufferedWriter.implFlush(BufferedWriter.java:372)\n\tat java.base/java.io.BufferedWriter.flush(BufferedWriter.java:359)\n\tat io.airbyte.workers.internal.DefaultAirbyteMessageBufferedWriter.flush(DefaultAirbyteMessageBufferedWriter.java:31)\n\tat io.airbyte.workers.internal.DefaultAirbyteDestination.notifyEndOfInputWithNoTimeoutMonitor(DefaultAirbyteDestination.java:145)\n\tat io.airbyte.workers.internal.DefaultAirbyteDestination.notifyEndOfInput(DefaultAirbyteDestination.java:135)\n\tat io.airbyte.workers.general.BufferedReplicationWorker.writeToDestination(BufferedReplicationWorker.java:443)\n\t... 5 more\n",
+  "timestamp" : 1708986557001
+}, {
+  "failureOrigin" : "source",
+  "internalMessage" : "Source process read attempt failed",
+  "externalMessage" : "Something went wrong within the source connector",
+  "metadata" : {
+    "attemptNumber" : 0,
+    "jobId" : 13,
+    "connector_command" : "read"
+  },
+  "stacktrace" : "io.airbyte.workers.internal.exception.SourceException: Source process read attempt failed\n\tat io.airbyte.workers.general.BufferedReplicationWorker.readFromSource(BufferedReplicationWorker.java:377)\n\tat io.airbyte.workers.general.BufferedReplicationWorker.lambda$runAsyncWithHeartbeatCheck$3(BufferedReplicationWorker.java:235)\n\tat java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1804)\n\tat java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)\n\tat java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)\n\tat java.base/java.lang.Thread.run(Thread.java:1583)\nCaused by: java.lang.IllegalStateException: Source process is still alive, cannot retrieve exit value.\n\tat com.google.common.base.Preconditions.checkState(Preconditions.java:502)\n\tat io.airbyte.workers.internal.DefaultAirbyteSource.getExitValue(DefaultAirbyteSource.java:127)\n\tat io.airbyte.workers.general.BufferedReplicationWorker.readFromSource(BufferedReplicationWorker.java:363)\n\t... 5 more\n",
+  "timestamp" : 1708986557057
+}, {
+  "failureOrigin" : "replication",
+  "internalMessage" : "io.airbyte.workers.exception.WorkerException: Destination process exit with code 1. This warning is normal if the job was cancelled.",
+  "externalMessage" : "Something went wrong during replication",
+  "metadata" : {
+    "attemptNumber" : 0,
+    "jobId" : 13
+  },
+  "stacktrace" : "java.lang.RuntimeException: io.airbyte.workers.exception.WorkerException: Destination process exit with code 1. This warning is normal if the job was cancelled.\n\tat io.airbyte.workers.general.BufferedReplicationWorker$CloseableWithTimeout.lambda$close$0(BufferedReplicationWorker.java:523)\n\tat io.airbyte.workers.general.BufferedReplicationWorker.lambda$runAsyncWithTimeout$5(BufferedReplicationWorker.java:256)\n\tat java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1804)\n\tat java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)\n\tat java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)\n\tat java.base/java.lang.Thread.run(Thread.java:1583)\nCaused by: io.airbyte.workers.exception.WorkerException: Destination process exit with code 1. This warning is normal if the job was cancelled.\n\tat io.airbyte.workers.internal.DefaultAirbyteDestination.close(DefaultAirbyteDestination.java:166)\n\tat io.airbyte.workers.general.BufferedReplicationWorker$CloseableWithTimeout.lambda$close$0(BufferedReplicationWorker.java:521)\n\t... 5 more\n",
+  "timestamp" : 1708986557136
+} ]
+2024-02-26 22:30:17 [46mplatform[0m > 
+2024-02-26 22:30:17 [46mplatform[0m > ----- END REPLICATION -----
+2024-02-26 22:30:17 [46mplatform[0m > 
+2024-02-26 22:30:17 [46mplatform[0m > Docker volume job log path: /tmp/workspace/13/0/logs.log
+2024-02-26 22:30:17 [46mplatform[0m > Executing worker wrapper. Airbyte version: 0.50.50
+2024-02-26 22:30:17 [46mplatform[0m > Attempt 0 to save workflow id for cancellation
+2024-02-26 22:30:17 [46mplatform[0m > 
+2024-02-26 22:30:17 [46mplatform[0m > ----- START DEFAULT NORMALIZATION -----
+2024-02-26 22:30:17 [46mplatform[0m > 
+2024-02-26 22:30:17 [46mplatform[0m > Running with normalization version: airbyte/normalization-clickhouse:0.4.3
+2024-02-26 22:30:17 [46mplatform[0m > Checking if airbyte/normalization-clickhouse:0.4.3 exists...
+2024-02-26 22:30:17 [46mplatform[0m > airbyte/normalization-clickhouse:0.4.3 was found locally.
+2024-02-26 22:30:17 [46mplatform[0m > Creating docker container = normalization-clickhouse-normalize-13-0-zsvpq with resources io.airbyte.config.ResourceRequirements@252479b7[cpuRequest=,cpuLimit=,memoryRequest=,memoryLimit=,additionalProperties={}] and allowedHosts null
+2024-02-26 22:30:17 [46mplatform[0m > Preparing command: docker run --rm --init -i -w /data/13/0/normalize --log-driver none --name normalization-clickhouse-normalize-13-0-zsvpq --network host -v airbyte_workspace:/data -v /tmp/airbyte_local:/local -e DEPLOYMENT_MODE=OSS -e WORKER_ENVIRONMENT=DOCKER -e AIRBYTE_ROLE=dev -e AIRBYTE_VERSION=0.50.50 airbyte/normalization-clickhouse:0.4.3 run --integration-type clickhouse --config destination_config.json --catalog destination_catalog.json
+2024-02-26 22:30:17 [42mnormalization[0m > Running: transform-config --config destination_config.json --integration-type clickhouse --out /data/13/0/normalize
+2024-02-26 22:30:18 [42mnormalization[0m > Namespace(config='destination_config.json', integration_type=<DestinationType.CLICKHOUSE: 'clickhouse'>, out='/data/13/0/normalize')
+2024-02-26 22:30:18 [42mnormalization[0m > transform_clickhouse
+2024-02-26 22:30:18 [42mnormalization[0m > Running: transform-catalog --integration-type clickhouse --profile-config-dir /data/13/0/normalize --catalog destination_catalog.json --out /data/13/0/normalize/models/generated/ --json-column _airbyte_data
+2024-02-26 22:30:19 [42mnormalization[0m > Processing destination_catalog.json...
+2024-02-26 22:30:19 [42mnormalization[0m >   Generating airbyte_ctes/rembo/employee_ab1.sql from employee
+2024-02-26 22:30:19 [42mnormalization[0m >   Generating airbyte_ctes/rembo/employee_ab2.sql from employee
+2024-02-26 22:30:19 [42mnormalization[0m >   Generating airbyte_views/rembo/employee_stg.sql from employee
+2024-02-26 22:30:19 [42mnormalization[0m >   Generating airbyte_incremental/scd/rembo/employee_scd.sql from employee
+2024-02-26 22:30:19 [42mnormalization[0m >   Generating airbyte_incremental/rembo/employee.sql from employee
+2024-02-26 22:30:19 [42mnormalization[0m >   Generating airbyte_ctes/rembo/sales_territory_ab1.sql from sales_territory
+2024-02-26 22:30:19 [42mnormalization[0m >   Generating airbyte_ctes/rembo/sales_territory_ab2.sql from sales_territory
+2024-02-26 22:30:19 [42mnormalization[0m >   Generating airbyte_views/rembo/sales_territory_stg.sql from sales_territory
+2024-02-26 22:30:19 [42mnormalization[0m >   Generating airbyte_incremental/scd/rembo/sales_territory_scd.sql from sales_territory
+2024-02-26 22:30:19 [42mnormalization[0m >   Generating airbyte_incremental/rembo/sales_territory.sql from sales_territory
+2024-02-26 22:30:19 [42mnormalization[0m >   Generating airbyte_ctes/rembo/sales_ab1.sql from sales
+2024-02-26 22:30:19 [42mnormalization[0m >   Generating airbyte_ctes/rembo/sales_ab2.sql from sales
+2024-02-26 22:30:19 [42mnormalization[0m >   Generating airbyte_views/rembo/sales_stg.sql from sales
+2024-02-26 22:30:19 [42mnormalization[0m >   Generating airbyte_incremental/scd/rembo/sales_scd.sql from sales
+2024-02-26 22:30:19 [42mnormalization[0m >   Generating airbyte_incremental/rembo/sales.sql from sales
+2024-02-26 22:30:19 [42mnormalization[0m >   Generating airbyte_ctes/rembo/customer_ab1.sql from customer
+2024-02-26 22:30:19 [42mnormalization[0m >   Generating airbyte_ctes/rembo/customer_ab2.sql from customer
+2024-02-26 22:30:19 [42mnormalization[0m >   Generating airbyte_views/rembo/customer_stg.sql from customer
+2024-02-26 22:30:19 [42mnormalization[0m >   Generating airbyte_incremental/scd/rembo/customer_scd.sql from customer
+2024-02-26 22:30:19 [42mnormalization[0m >   Generating airbyte_incremental/rembo/customer.sql from customer
+2024-02-26 22:30:19 [42mnormalization[0m > detected no config file for ssh, assuming ssh is off.
+2024-02-26 22:30:23 [42mnormalization[0m > [0m22:30:23  Running with dbt=1.4.6
+2024-02-26 22:30:23 [42mnormalization[0m > [0m22:30:23  Unable to do partial parsing because saved manifest not found. Starting full parse.
+2024-02-26 22:30:24 [42mnormalization[0m > [0m22:30:24  [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+2024-02-26 22:30:24 [42mnormalization[0m > There are 1 unused configuration paths:
+2024-02-26 22:30:24 [42mnormalization[0m > - models.airbyte_utils.generated.airbyte_tables
+2024-02-26 22:30:24 [42mnormalization[0m > [0m22:30:24  Found 20 models, 0 tests, 0 snapshots, 0 analyses, 753 macros, 0 operations, 0 seed files, 4 sources, 0 exposures, 0 metrics
+2024-02-26 22:30:24 [42mnormalization[0m > [0m22:30:24  
+2024-02-26 22:30:26 [42mnormalization[0m > [0m22:30:26  
+2024-02-26 22:30:26 [42mnormalization[0m > [0m22:30:26  Finished running  in 0 hours 0 minutes and 2.11 seconds (2.11s).
+2024-02-26 22:30:26 [42mnormalization[0m > [0m22:30:26  Encountered an error:
+2024-02-26 22:30:26 [42mnormalization[0m > Database Error
+2024-02-26 22:30:26 [42mnormalization[0m >   Error HTTPConnectionPool(host='localhost', port=8123): Max retries exceeded with url: /?wait_end_of_query=1 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7ffffb375330>: Failed to establish a new connection: [Errno 111] Connection refused')) executing HTTP request http://localhost:8123
+2024-02-26 22:30:26 [46mplatform[0m > 
+2024-02-26 22:30:26 [42mnormalization[0m > Diagnosing dbt debug to check if destination is available for dbt and well configured (1):
+2024-02-26 22:30:26 [46mplatform[0m > 
+2024-02-26 22:30:29 [42mnormalization[0m > [0m22:30:29  Running with dbt=1.4.6
+2024-02-26 22:30:30 [42mnormalization[0m > dbt version: 1.4.6
+2024-02-26 22:30:30 [42mnormalization[0m > python version: 3.10.7
+2024-02-26 22:30:30 [42mnormalization[0m > python path: /usr/local/bin/python
+2024-02-26 22:30:30 [42mnormalization[0m > os info: Linux-6.6.12-linuxkit-x86_64-with-glibc2.31
+2024-02-26 22:30:30 [42mnormalization[0m > Using profiles.yml file at /data/13/0/normalize/profiles.yml
+2024-02-26 22:30:30 [42mnormalization[0m > Using dbt_project.yml file at /data/13/0/normalize/dbt_project.yml
+2024-02-26 22:30:30 [46mplatform[0m > 
+2024-02-26 22:30:30 [42mnormalization[0m > Configuration:
+2024-02-26 22:30:30 [42mnormalization[0m >   profiles.yml file [[32mOK found and valid[0m]
+2024-02-26 22:30:30 [42mnormalization[0m >   dbt_project.yml file [[32mOK found and valid[0m]
+2024-02-26 22:30:30 [46mplatform[0m > 
+2024-02-26 22:30:30 [42mnormalization[0m > Required dependencies:
+2024-02-26 22:30:30 [42mnormalization[0m >  - git [[32mOK found[0m]
+2024-02-26 22:30:30 [46mplatform[0m > 
+2024-02-26 22:30:30 [42mnormalization[0m > Connection:
+2024-02-26 22:30:30 [42mnormalization[0m >   driver: http
+2024-02-26 22:30:30 [42mnormalization[0m >   host: localhost
+2024-02-26 22:30:30 [42mnormalization[0m >   port: 8123
+2024-02-26 22:30:30 [42mnormalization[0m >   user: user1
+2024-02-26 22:30:30 [42mnormalization[0m >   schema: rembo
+2024-02-26 22:30:30 [42mnormalization[0m >   retries: 1
+2024-02-26 22:30:30 [42mnormalization[0m >   database_engine: None
+2024-02-26 22:30:30 [42mnormalization[0m >   cluster_mode: False
+2024-02-26 22:30:30 [42mnormalization[0m >   secure: False
+2024-02-26 22:30:30 [42mnormalization[0m >   verify: False
+2024-02-26 22:30:30 [42mnormalization[0m >   connect_timeout: 10
+2024-02-26 22:30:30 [42mnormalization[0m >   send_receive_timeout: 300
+2024-02-26 22:30:30 [42mnormalization[0m >   sync_request_timeout: 5
+2024-02-26 22:30:30 [42mnormalization[0m >   compress_block_size: 1048576
+2024-02-26 22:30:30 [42mnormalization[0m >   compression: 
+2024-02-26 22:30:30 [42mnormalization[0m >   check_exchange: True
+2024-02-26 22:30:30 [42mnormalization[0m >   custom_settings: None
+2024-02-26 22:30:30 [42mnormalization[0m >   use_lw_deletes: False
+2024-02-26 22:30:30 [42mnormalization[0m >   Connection test: [[31mERROR[0m]
+2024-02-26 22:30:30 [46mplatform[0m > 
+2024-02-26 22:30:30 [42mnormalization[0m > [31m1 check failed:[0m
+2024-02-26 22:30:30 [42mnormalization[0m > dbt was unable to connect to the specified database.
+2024-02-26 22:30:30 [42mnormalization[0m > The database returned the following error:
+2024-02-26 22:30:30 [46mplatform[0m > 
+2024-02-26 22:30:30 [42mnormalization[0m >   >Database Error
+2024-02-26 22:30:30 [42mnormalization[0m >   Error HTTPConnectionPool(host='localhost', port=8123): Max retries exceeded with url: /?wait_end_of_query=1 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7ffffe0a6170>: Failed to establish a new connection: [Errno 111] Connection refused')) executing HTTP request http://localhost:8123
+2024-02-26 22:30:30 [46mplatform[0m > 
+2024-02-26 22:30:30 [42mnormalization[0m > Check your database credentials and try again. For more information, visit:
+2024-02-26 22:30:30 [42mnormalization[0m > https://docs.getdbt.com/docs/configure-your-profile
+2024-02-26 22:30:30 [46mplatform[0m > 
+2024-02-26 22:30:30 [46mplatform[0m > 
+2024-02-26 22:30:30 [42mnormalization[0m > Unable to connect ClickHouse Connect C to Numpy API [No module named 'numpy'], falling back to pure Python
+2024-02-26 22:30:30 [42mnormalization[0m > Unexpected Http Driver Exception
+2024-02-26 22:30:30 [42mnormalization[0m > Unexpected Http Driver Exception
+2024-02-26 22:30:30 [42mnormalization[0m > Unexpected Http Driver Exception
+2024-02-26 22:30:30 [42mnormalization[0m > Unexpected Http Driver Exception
+2024-02-26 22:30:30 [42mnormalization[0m > Unable to connect ClickHouse Connect C to Numpy API [No module named 'numpy'], falling back to pure Python
+2024-02-26 22:30:30 [42mnormalization[0m > Unexpected Http Driver Exception
+2024-02-26 22:30:30 [42mnormalization[0m > Unexpected Http Driver Exception
+2024-02-26 22:30:30 [46mplatform[0m > Terminating normalization process...
+2024-02-26 22:30:30 [46mplatform[0m > Normalization failed for job 13.
+io.airbyte.workers.exception.WorkerException: Normalization process did not terminate normally (exit code: 1)
+	at io.airbyte.workers.normalization.DefaultNormalizationRunner.close(DefaultNormalizationRunner.java:186) ~[io.airbyte-airbyte-commons-worker-0.50.50.jar:?]
+	at io.airbyte.workers.general.DefaultNormalizationWorker.run(DefaultNormalizationWorker.java:89) ~[io.airbyte-airbyte-commons-worker-0.50.50.jar:?]
+	at io.airbyte.workers.general.DefaultNormalizationWorker.run(DefaultNormalizationWorker.java:38) ~[io.airbyte-airbyte-commons-worker-0.50.50.jar:?]
+	at io.airbyte.workers.temporal.TemporalAttemptExecution.get(TemporalAttemptExecution.java:142) ~[io.airbyte-airbyte-workers-0.50.50.jar:?]
+	at io.airbyte.workers.temporal.sync.NormalizationActivityImpl.lambda$normalize$2(NormalizationActivityImpl.java:194) ~[io.airbyte-airbyte-workers-0.50.50.jar:?]
+	at io.airbyte.commons.temporal.HeartbeatUtils.withBackgroundHeartbeat(HeartbeatUtils.java:57) ~[io.airbyte-airbyte-commons-temporal-core-0.50.50.jar:?]
+	at io.airbyte.workers.temporal.sync.NormalizationActivityImpl.normalize(NormalizationActivityImpl.java:144) ~[io.airbyte-airbyte-workers-0.50.50.jar:?]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+	at io.temporal.internal.activity.RootActivityInboundCallsInterceptor$POJOActivityInboundCallsInterceptor.executeActivity(RootActivityInboundCallsInterceptor.java:64) ~[temporal-sdk-1.22.3.jar:?]
+	at io.temporal.internal.activity.RootActivityInboundCallsInterceptor.execute(RootActivityInboundCallsInterceptor.java:43) ~[temporal-sdk-1.22.3.jar:?]
+	at io.temporal.internal.activity.ActivityTaskExecutors$BaseActivityTaskExecutor.execute(ActivityTaskExecutors.java:107) ~[temporal-sdk-1.22.3.jar:?]
+	at io.temporal.internal.activity.ActivityTaskHandlerImpl.handle(ActivityTaskHandlerImpl.java:124) ~[temporal-sdk-1.22.3.jar:?]
+	at io.temporal.internal.worker.ActivityWorker$TaskHandlerImpl.handleActivity(ActivityWorker.java:278) ~[temporal-sdk-1.22.3.jar:?]
+	at io.temporal.internal.worker.ActivityWorker$TaskHandlerImpl.handle(ActivityWorker.java:243) ~[temporal-sdk-1.22.3.jar:?]
+	at io.temporal.internal.worker.ActivityWorker$TaskHandlerImpl.handle(ActivityWorker.java:216) ~[temporal-sdk-1.22.3.jar:?]
+	at io.temporal.internal.worker.PollTaskExecutor.lambda$process$0(PollTaskExecutor.java:105) ~[temporal-sdk-1.22.3.jar:?]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144) ~[?:?]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642) ~[?:?]
+	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
+2024-02-26 22:30:30 [46mplatform[0m > Normalization executed in 13 seconds for job 13.
+2024-02-26 22:30:31 [46mplatform[0m > Retry State: RetryManager(completeFailureBackoffPolicy=BackoffPolicy(minInterval=PT10S, maxInterval=PT30M, base=3), partialFailureBackoffPolicy=null, successiveCompleteFailureLimit=5, totalCompleteFailureLimit=10, successivePartialFailureLimit=1000, totalPartialFailureLimit=10, successiveCompleteFailures=1, totalCompleteFailures=1, successivePartialFailures=0, totalPartialFailures=0)
+ Backoff before next attempt: 10 seconds
+2024-02-26 22:30:32 [46mplatform[0m > Retry State: RetryManager(completeFailureBackoffPolicy=BackoffPolicy(minInterval=PT10S, maxInterval=PT30M, base=3), partialFailureBackoffPolicy=null, successiveCompleteFailureLimit=5, totalCompleteFailureLimit=10, successivePartialFailureLimit=1000, totalPartialFailureLimit=10, successiveCompleteFailures=1, totalCompleteFailures=1, successivePartialFailures=0, totalPartialFailures=0)
+2024-02-26 22:30:32 [46mplatform[0m > Backing off for: 10 seconds.
+2024-02-26 22:30:43 [46mplatform[0m > Docker volume job log path: /tmp/workspace/13/1/logs.log
+2024-02-26 22:30:43 [46mplatform[0m > Executing worker wrapper. Airbyte version: 0.50.50
+2024-02-26 22:30:43 [46mplatform[0m > Attempt 0 to save workflow id for cancellation
+2024-02-26 22:30:43 [46mplatform[0m > 
+2024-02-26 22:30:43 [46mplatform[0m > ----- START CHECK -----
+2024-02-26 22:30:43 [46mplatform[0m > 
+2024-02-26 22:30:43 [46mplatform[0m > Using default value for environment variable SIDECAR_KUBE_CPU_LIMIT: '2.0'
+2024-02-26 22:30:43 [46mplatform[0m > Using default value for environment variable SOCAT_KUBE_CPU_LIMIT: '2.0'
+2024-02-26 22:30:43 [46mplatform[0m > Using default value for environment variable SIDECAR_KUBE_CPU_REQUEST: '0.1'
+2024-02-26 22:30:43 [46mplatform[0m > Using default value for environment variable SOCAT_KUBE_CPU_REQUEST: '0.1'
+2024-02-26 22:30:43 [46mplatform[0m > Using default value for environment variable LAUNCHDARKLY_KEY: ''
+2024-02-26 22:30:43 [46mplatform[0m > Checking if airbyte/source-postgres:3.3.8 exists...
+2024-02-26 22:30:43 [46mplatform[0m > airbyte/source-postgres:3.3.8 was found locally.
+2024-02-26 22:30:43 [46mplatform[0m > Creating docker container = source-postgres-check-13-1-wioec with resources io.airbyte.config.ResourceRequirements@37331efa[cpuRequest=,cpuLimit=,memoryRequest=,memoryLimit=,additionalProperties={}] and allowedHosts io.airbyte.config.AllowedHosts@2a875e23[hosts=[localhost, *.datadoghq.com, *.datadoghq.eu, *.sentry.io],additionalProperties={}]
+2024-02-26 22:30:43 [46mplatform[0m > Preparing command: docker run --rm --init -i -w /data/13/1 --log-driver none --name source-postgres-check-13-1-wioec --network host -v airbyte_workspace:/data -v /tmp/airbyte_local:/local -e DEPLOYMENT_MODE=OSS -e WORKER_CONNECTOR_IMAGE=airbyte/source-postgres:3.3.8 -e AUTO_DETECT_SCHEMA=true -e LAUNCHDARKLY_KEY= -e SOCAT_KUBE_CPU_REQUEST=0.1 -e SOCAT_KUBE_CPU_LIMIT=2.0 -e FIELD_SELECTION_WORKSPACES= -e USE_STREAM_CAPABLE_STATE=true -e WORKER_ENVIRONMENT=DOCKER -e AIRBYTE_ROLE=dev -e APPLY_FIELD_SELECTION=false -e WORKER_JOB_ATTEMPT=1 -e OTEL_COLLECTOR_ENDPOINT=http://host.docker.internal:4317 -e FEATURE_FLAG_CLIENT=config -e AIRBYTE_VERSION=0.50.50 -e WORKER_JOB_ID=13 airbyte/source-postgres:3.3.8 check --config source_config.json
+2024-02-26 22:30:43 [46mplatform[0m > Reading messages from protocol version 0.2.0
+2024-02-26 22:30:44 [46mplatform[0m > WARN StatusConsoleListener The use of package scanning to locate plugins is deprecated and will be removed in a future release
+2024-02-26 22:30:44 [46mplatform[0m > WARN StatusConsoleListener The use of package scanning to locate plugins is deprecated and will be removed in a future release
+2024-02-26 22:30:44 [46mplatform[0m > WARN StatusConsoleListener The use of package scanning to locate plugins is deprecated and will be removed in a future release
+2024-02-26 22:30:44 [46mplatform[0m > WARN StatusConsoleListener The use of package scanning to locate plugins is deprecated and will be removed in a future release
+2024-02-26 22:30:44 [46mplatform[0m > 2024-02-26 22:30:44 [32mINFO[m i.a.i.s.p.PostgresSource(main):712 - starting source: class io.airbyte.integrations.source.postgres.PostgresSource
+2024-02-26 22:30:44 [46mplatform[0m > 2024-02-26 22:30:44 [32mINFO[m i.a.c.i.b.IntegrationCliParser(parseOptions):126 - integration args: {check=null, config=source_config.json}
+2024-02-26 22:30:44 [46mplatform[0m > 2024-02-26 22:30:44 [32mINFO[m i.a.c.i.b.IntegrationRunner(runInternal):132 - Running integration: io.airbyte.cdk.integrations.base.ssh.SshWrappedSource
+2024-02-26 22:30:44 [46mplatform[0m > 2024-02-26 22:30:44 [32mINFO[m i.a.c.i.b.IntegrationRunner(runInternal):133 - Command: CHECK
+2024-02-26 22:30:44 [46mplatform[0m > 2024-02-26 22:30:44 [32mINFO[m i.a.c.i.b.IntegrationRunner(runInternal):134 - Integration config: IntegrationConfig{command=CHECK, configPath='source_config.json', catalogPath='null', statePath='null'}
+2024-02-26 22:30:44 [46mplatform[0m > 2024-02-26 22:30:44 [33mWARN[m c.n.s.JsonMetaSchema(newValidator):278 - Unknown keyword groups - you should define your own Meta Schema. If the keyword is irrelevant for validation, just use a NonValidationKeyword
+2024-02-26 22:30:44 [46mplatform[0m > 2024-02-26 22:30:44 [33mWARN[m c.n.s.JsonMetaSchema(newValidator):278 - Unknown keyword order - you should define your own Meta Schema. If the keyword is irrelevant for validation, just use a NonValidationKeyword
+2024-02-26 22:30:44 [46mplatform[0m > 2024-02-26 22:30:44 [33mWARN[m c.n.s.JsonMetaSchema(newValidator):278 - Unknown keyword group - you should define your own Meta Schema. If the keyword is irrelevant for validation, just use a NonValidationKeyword
+2024-02-26 22:30:44 [46mplatform[0m > 2024-02-26 22:30:44 [33mWARN[m c.n.s.JsonMetaSchema(newValidator):278 - Unknown keyword airbyte_secret - you should define your own Meta Schema. If the keyword is irrelevant for validation, just use a NonValidationKeyword
+2024-02-26 22:30:44 [46mplatform[0m > 2024-02-26 22:30:44 [33mWARN[m c.n.s.JsonMetaSchema(newValidator):278 - Unknown keyword always_show - you should define your own Meta Schema. If the keyword is irrelevant for validation, just use a NonValidationKeyword
+2024-02-26 22:30:44 [46mplatform[0m > 2024-02-26 22:30:44 [33mWARN[m c.n.s.JsonMetaSchema(newValidator):278 - Unknown keyword display_type - you should define your own Meta Schema. If the keyword is irrelevant for validation, just use a NonValidationKeyword
+2024-02-26 22:30:44 [46mplatform[0m > 2024-02-26 22:30:44 [32mINFO[m i.a.c.i.b.s.SshTunnel(getInstance):252 - Starting connection with method: NO_TUNNEL
+2024-02-26 22:30:44 [46mplatform[0m > 2024-02-26 22:30:44 [32mINFO[m i.a.i.s.p.PostgresUtils(isCdc):70 - using CDC: false
+2024-02-26 22:30:44 [46mplatform[0m > 2024-02-26 22:30:44 [32mINFO[m i.a.i.s.p.PostgresSource(toSslJdbcParamInternal):768 - DISABLED toSslJdbcParam disable
+2024-02-26 22:30:44 [46mplatform[0m > 2024-02-26 22:30:44 [32mINFO[m c.z.h.HikariDataSource(<init>):79 - HikariPool-1 - Starting...
+2024-02-26 22:30:44 [46mplatform[0m > 2024-02-26 22:30:44 [32mINFO[m c.z.h.HikariDataSource(<init>):81 - HikariPool-1 - Start completed.
+2024-02-26 22:30:44 [46mplatform[0m > 2024-02-26 22:30:44 [32mINFO[m i.a.i.s.p.PostgresUtils(isCdc):70 - using CDC: false
+2024-02-26 22:30:44 [46mplatform[0m > 2024-02-26 22:30:44 [32mINFO[m i.a.i.s.p.PostgresUtils(isCdc):70 - using CDC: false
+2024-02-26 22:30:44 [46mplatform[0m > 2024-02-26 22:30:44 [32mINFO[m i.a.c.i.s.j.AbstractJdbcSource(lambda$getCheckOperations$1):140 - Attempting to get metadata from the database to see if we can connect.
+2024-02-26 22:30:44 [46mplatform[0m > 2024-02-26 22:30:44 [32mINFO[m c.z.h.HikariDataSource(close):349 - HikariPool-1 - Shutdown initiated...
+2024-02-26 22:30:44 [46mplatform[0m > 2024-02-26 22:30:44 [32mINFO[m c.z.h.HikariDataSource(close):351 - HikariPool-1 - Shutdown completed.
+2024-02-26 22:30:44 [46mplatform[0m > 2024-02-26 22:30:44 [32mINFO[m i.a.c.i.b.IntegrationRunner(runInternal):231 - Completed integration: io.airbyte.cdk.integrations.base.ssh.SshWrappedSource
+2024-02-26 22:30:44 [46mplatform[0m > 2024-02-26 22:30:44 [32mINFO[m i.a.i.s.p.PostgresSource(main):714 - completed source: class io.airbyte.integrations.source.postgres.PostgresSource
+2024-02-26 22:30:44 [46mplatform[0m > Check connection job received output: io.airbyte.config.StandardCheckConnectionOutput@73f6f554[status=succeeded,message=<null>,additionalProperties={}]
+2024-02-26 22:30:44 [46mplatform[0m > 
+2024-02-26 22:30:44 [46mplatform[0m > ----- END CHECK -----
+2024-02-26 22:30:44 [46mplatform[0m > 
+2024-02-26 22:30:44 [46mplatform[0m > Docker volume job log path: /tmp/workspace/13/1/logs.log
+2024-02-26 22:30:44 [46mplatform[0m > Executing worker wrapper. Airbyte version: 0.50.50
+2024-02-26 22:30:44 [46mplatform[0m > Attempt 0 to save workflow id for cancellation
+2024-02-26 22:30:44 [46mplatform[0m > Using default value for environment variable SIDECAR_KUBE_CPU_LIMIT: '2.0'
+2024-02-26 22:30:44 [46mplatform[0m > 
+2024-02-26 22:30:44 [46mplatform[0m > Using default value for environment variable SOCAT_KUBE_CPU_LIMIT: '2.0'
+2024-02-26 22:30:44 [46mplatform[0m > ----- START CHECK -----
+2024-02-26 22:30:44 [46mplatform[0m > 
+2024-02-26 22:30:44 [46mplatform[0m > Using default value for environment variable SIDECAR_KUBE_CPU_REQUEST: '0.1'
+2024-02-26 22:30:44 [46mplatform[0m > Using default value for environment variable SOCAT_KUBE_CPU_REQUEST: '0.1'
+2024-02-26 22:30:44 [46mplatform[0m > Using default value for environment variable LAUNCHDARKLY_KEY: ''
+2024-02-26 22:30:44 [46mplatform[0m > Checking if airbyte/destination-clickhouse:0.2.5 exists...
+2024-02-26 22:30:44 [46mplatform[0m > airbyte/destination-clickhouse:0.2.5 was found locally.
+2024-02-26 22:30:44 [46mplatform[0m > Creating docker container = destination-clickhouse-check-13-1-zicor with resources io.airbyte.config.ResourceRequirements@7b171a2[cpuRequest=,cpuLimit=,memoryRequest=,memoryLimit=,additionalProperties={}] and allowedHosts null
+2024-02-26 22:30:44 [46mplatform[0m > Preparing command: docker run --rm --init -i -w /data/13/1 --log-driver none --name destination-clickhouse-check-13-1-zicor --network host -v airbyte_workspace:/data -v /tmp/airbyte_local:/local -e DEPLOYMENT_MODE=OSS -e WORKER_CONNECTOR_IMAGE=airbyte/destination-clickhouse:0.2.5 -e AUTO_DETECT_SCHEMA=true -e LAUNCHDARKLY_KEY= -e SOCAT_KUBE_CPU_REQUEST=0.1 -e SOCAT_KUBE_CPU_LIMIT=2.0 -e FIELD_SELECTION_WORKSPACES= -e USE_STREAM_CAPABLE_STATE=true -e WORKER_ENVIRONMENT=DOCKER -e AIRBYTE_ROLE=dev -e APPLY_FIELD_SELECTION=false -e WORKER_JOB_ATTEMPT=1 -e OTEL_COLLECTOR_ENDPOINT=http://host.docker.internal:4317 -e FEATURE_FLAG_CLIENT=config -e AIRBYTE_VERSION=0.50.50 -e WORKER_JOB_ID=13 airbyte/destination-clickhouse:0.2.5 check --config source_config.json
+2024-02-26 22:30:44 [46mplatform[0m > Reading messages from protocol version 0.2.0
+2024-02-26 22:30:45 [46mplatform[0m > INFO i.a.i.d.c.ClickhouseDestination(main):113 starting destination: class io.airbyte.integrations.destination.clickhouse.ClickhouseDestination
+2024-02-26 22:30:46 [46mplatform[0m > INFO i.a.i.b.IntegrationCliParser(parseOptions):126 integration args: {check=null, config=source_config.json}
+2024-02-26 22:30:46 [46mplatform[0m > INFO i.a.i.b.IntegrationRunner(runInternal):106 Running integration: io.airbyte.integrations.base.ssh.SshWrappedDestination
+2024-02-26 22:30:46 [46mplatform[0m > INFO i.a.i.b.IntegrationRunner(runInternal):107 Command: CHECK
+2024-02-26 22:30:46 [46mplatform[0m > INFO i.a.i.b.IntegrationRunner(runInternal):108 Integration config: IntegrationConfig{command=CHECK, configPath='source_config.json', catalogPath='null', statePath='null'}
+2024-02-26 22:30:46 [46mplatform[0m > WARN c.n.s.JsonMetaSchema(newValidator):278 Unknown keyword order - you should define your own Meta Schema. If the keyword is irrelevant for validation, just use a NonValidationKeyword
+2024-02-26 22:30:46 [46mplatform[0m > WARN c.n.s.JsonMetaSchema(newValidator):278 Unknown keyword airbyte_secret - you should define your own Meta Schema. If the keyword is irrelevant for validation, just use a NonValidationKeyword
+2024-02-26 22:30:46 [46mplatform[0m > INFO i.a.i.b.s.SshTunnel(getInstance):204 Starting connection with method: NO_TUNNEL
+2024-02-26 22:30:46 [46mplatform[0m > INFO c.z.h.HikariDataSource(<init>):80 HikariPool-1 - Starting...
+2024-02-26 22:30:46 [46mplatform[0m > INFO c.z.h.HikariDataSource(<init>):82 HikariPool-1 - Start completed.
+2024-02-26 22:31:46 [46mplatform[0m > ERROR i.a.i.d.c.ClickhouseDestination(check):93 Exception while checking connection: io.airbyte.commons.exceptions.ConnectionErrorException: java.sql.SQLTransientConnectionException: HikariPool-1 - Connection is not available, request timed out after 60007ms.
+	at io.airbyte.integrations.destination.jdbc.AbstractJdbcDestination.attemptTableOperations(AbstractJdbcDestination.java:146) ~[io.airbyte.airbyte-integrations.bases-bases-destination-jdbc-24.0.2.jar:?]
+	at io.airbyte.integrations.destination.jdbc.AbstractJdbcDestination.attemptSQLCreateAndDropTableOperations(AbstractJdbcDestination.java:100) ~[io.airbyte.airbyte-integrations.bases-bases-destination-jdbc-24.0.2.jar:?]
+	at io.airbyte.integrations.destination.clickhouse.ClickhouseDestination.check(ClickhouseDestination.java:90) ~[io.airbyte.airbyte-integrations.connectors-destination-clickhouse-24.0.2.jar:?]
+	at io.airbyte.integrations.base.ssh.SshTunnel.sshWrap(SshTunnel.java:270) ~[io.airbyte.airbyte-integrations.bases-base-java-24.0.2.jar:?]
+	at io.airbyte.integrations.base.ssh.SshWrappedDestination.check(SshWrappedDestination.java:67) ~[io.airbyte.airbyte-integrations.bases-base-java-24.0.2.jar:?]
+	at io.airbyte.integrations.base.IntegrationRunner.runInternal(IntegrationRunner.java:124) ~[io.airbyte.airbyte-integrations.bases-base-java-24.0.2.jar:?]
+	at io.airbyte.integrations.base.IntegrationRunner.run(IntegrationRunner.java:99) ~[io.airbyte.airbyte-integrations.bases-base-java-24.0.2.jar:?]
+	at io.airbyte.integrations.destination.clickhouse.ClickhouseDestination.main(ClickhouseDestination.java:114) ~[io.airbyte.airbyte-integrations.connectors-destination-clickhouse-24.0.2.jar:?]
+Caused by: java.sql.SQLTransientConnectionException: HikariPool-1 - Connection is not available, request timed out after 60007ms.
+	at com.zaxxer.hikari.pool.HikariPool.createTimeoutException(HikariPool.java:696) ~[HikariCP-5.0.1.jar:?]
+	at com.zaxxer.hikari.pool.HikariPool.getConnection(HikariPool.java:181) ~[HikariCP-5.0.1.jar:?]
+	at com.zaxxer.hikari.pool.HikariPool.getConnection(HikariPool.java:146) ~[HikariCP-5.0.1.jar:?]
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:100) ~[HikariCP-5.0.1.jar:?]
+	at io.airbyte.db.jdbc.DefaultJdbcDatabase.bufferedResultSetQuery(DefaultJdbcDatabase.java:54) ~[io.airbyte.airbyte-db-db-lib-24.0.2.jar:?]
+	at io.airbyte.integrations.destination.jdbc.AbstractJdbcDestination.attemptTableOperations(AbstractJdbcDestination.java:126) ~[io.airbyte.airbyte-integrations.bases-bases-destination-jdbc-24.0.2.jar:?]
+	... 7 more
+Caused by: java.sql.SQLException: Connection refused, server ClickHouseNode [uri=http://localhost:8123/rembo, options={socket_timeout=3000000}]
+	at com.clickhouse.jdbc.SqlExceptionUtils.handle(SqlExceptionUtils.java:55) ~[clickhouse-jdbc-0.3.2-patch10-all.jar:clickhouse-jdbc 0.3.2-patch10 (revision: aebad16)]
+	at com.clickhouse.jdbc.SqlExceptionUtils.handle(SqlExceptionUtils.java:70) ~[clickhouse-jdbc-0.3.2-patch10-all.jar:clickhouse-jdbc 0.3.2-patch10 (revision: aebad16)]
+	at com.clickhouse.jdbc.internal.ClickHouseConnectionImpl.getServerInfo(ClickHouseConnectionImpl.java:86) ~[clickhouse-jdbc-0.3.2-patch10-all.jar:clickhouse-jdbc 0.3.2-patch10 (revision: aebad16)]
+	at com.clickhouse.jdbc.internal.ClickHouseConnectionImpl.<init>(ClickHouseConnectionImpl.java:244) ~[clickhouse-jdbc-0.3.2-patch10-all.jar:clickhouse-jdbc 0.3.2-patch10 (revision: aebad16)]
+	at com.clickhouse.jdbc.internal.ClickHouseConnectionImpl.<init>(ClickHouseConnectionImpl.java:214) ~[clickhouse-jdbc-0.3.2-patch10-all.jar:clickhouse-jdbc 0.3.2-patch10 (revision: aebad16)]
+	at com.clickhouse.jdbc.ClickHouseDriver.connect(ClickHouseDriver.java:145) ~[clickhouse-jdbc-0.3.2-patch10-all.jar:clickhouse-jdbc 0.3.2-patch10 (revision: aebad16)]
+	at com.clickhouse.jdbc.ClickHouseDriver.connect(ClickHouseDriver.java:41) ~[clickhouse-jdbc-0.3.2-patch10-all.jar:clickhouse-jdbc 0.3.2-patch10 (revision: aebad16)]
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138) ~[HikariCP-5.0.1.jar:?]
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:359) ~[HikariCP-5.0.1.jar:?]
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:201) ~[HikariCP-5.0.1.jar:?]
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:470) ~[HikariCP-5.0.1.jar:?]
+	at com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:733) ~[HikariCP-5.0.1.jar:?]
+	at com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:712) ~[HikariCP-5.0.1.jar:?]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:264) ~[?:?]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136) ~[?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) ~[?:?]
+	at java.lang.Thread.run(Thread.java:833) ~[?:?]
+Caused by: java.net.ConnectException: Connection refused
+	at sun.nio.ch.Net.pollConnect(Native Method) ~[?:?]
+	at sun.nio.ch.Net.pollConnectNow(Net.java:672) ~[?:?]
+	at sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:542) ~[?:?]
+	at sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:597) ~[?:?]
+	at java.net.Socket.connect(Socket.java:633) ~[?:?]
+	at sun.net.NetworkClient.doConnect(NetworkClient.java:178) ~[?:?]
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:532) ~[?:?]
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:637) ~[?:?]
+	at sun.net.www.http.HttpClient.<init>(HttpClient.java:280) ~[?:?]
+	at sun.net.www.http.HttpClient.New(HttpClient.java:385) ~[?:?]
+	at sun.net.www.http.HttpClient.New(HttpClient.java:407) ~[?:?]
+	at sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(HttpURLConnection.java:1309) ~[?:?]
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1242) ~[?:?]
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:1128) ~[?:?]
+	at sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:1057) ~[?:?]
+	at sun.net.www.protocol.http.HttpURLConnection.getOutputStream0(HttpURLConnection.java:1430) ~[?:?]
+	at sun.net.www.protocol.http.HttpURLConnection.getOutputStream(HttpURLConnection.java:1401) ~[?:?]
+	at com.clickhouse.client.http.HttpUrlConnectionImpl.post(HttpUrlConnectionImpl.java:226) ~[clickhouse-jdbc-0.3.2-patch10-all.jar:clickhouse-jdbc 0.3.2-patch10 (revision: aebad16)]
+	at com.clickhouse.client.http.ClickHouseHttpClient.send(ClickHouseHttpClient.java:101) ~[clickhouse-jdbc-0.3.2-patch10-all.jar:clickhouse-jdbc 0.3.2-patch10 (revision: aebad16)]
+	at com.clickhouse.client.AbstractClient.execute(AbstractClient.java:296) ~[clickhouse-jdbc-0.3.2-patch10-all.jar:clickhouse-jdbc 0.3.2-patch10 (revision: aebad16)]
+	at com.clickhouse.client.ClickHouseClientBuilder$Agent.sendOnce(ClickHouseClientBuilder.java:191) ~[clickhouse-jdbc-0.3.2-patch10-all.jar:clickhouse-jdbc 0.3.2-patch10 (revision: aebad16)]
+	at com.clickhouse.client.ClickHouseClientBuilder$Agent.send(ClickHouseClientBuilder.java:202) ~[clickhouse-jdbc-0.3.2-patch10-all.jar:clickhouse-jdbc 0.3.2-patch10 (revision: aebad16)]
+	at com.clickhouse.client.ClickHouseClientBuilder$Agent.execute(ClickHouseClientBuilder.java:234) ~[clickhouse-jdbc-0.3.2-patch10-all.jar:clickhouse-jdbc 0.3.2-patch10 (revision: aebad16)]
+	at com.clickhouse.client.ClickHouseRequest.execute(ClickHouseRequest.java:1748) ~[clickhouse-jdbc-0.3.2-patch10-all.jar:clickhouse-jdbc 0.3.2-patch10 (revision: aebad16)]
+	at com.clickhouse.jdbc.internal.ClickHouseConnectionImpl.getServerInfo(ClickHouseConnectionImpl.java:79) ~[clickhouse-jdbc-0.3.2-patch10-all.jar:clickhouse-jdbc 0.3.2-patch10 (revision: aebad16)]
+	at com.clickhouse.jdbc.internal.ClickHouseConnectionImpl.<init>(ClickHouseConnectionImpl.java:244) ~[clickhouse-jdbc-0.3.2-patch10-all.jar:clickhouse-jdbc 0.3.2-patch10 (revision: aebad16)]
+	at com.clickhouse.jdbc.internal.ClickHouseConnectionImpl.<init>(ClickHouseConnectionImpl.java:214) ~[clickhouse-jdbc-0.3.2-patch10-all.jar:clickhouse-jdbc 0.3.2-patch10 (revision: aebad16)]
+	at com.clickhouse.jdbc.ClickHouseDriver.connect(ClickHouseDriver.java:145) ~[clickhouse-jdbc-0.3.2-patch10-all.jar:clickhouse-jdbc 0.3.2-patch10 (revision: aebad16)]
+	at com.clickhouse.jdbc.ClickHouseDriver.connect(ClickHouseDriver.java:41) ~[clickhouse-jdbc-0.3.2-patch10-all.jar:clickhouse-jdbc 0.3.2-patch10 (revision: aebad16)]
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138) ~[HikariCP-5.0.1.jar:?]
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:359) ~[HikariCP-5.0.1.jar:?]
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:201) ~[HikariCP-5.0.1.jar:?]
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:470) ~[HikariCP-5.0.1.jar:?]
+	at com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:733) ~[HikariCP-5.0.1.jar:?]
+	at com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:712) ~[HikariCP-5.0.1.jar:?]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:264) ~[?:?]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136) ~[?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) ~[?:?]
+	at java.lang.Thread.run(Thread.java:833) ~[?:?]
+
+Stack Trace: io.airbyte.commons.exceptions.ConnectionErrorException: java.sql.SQLTransientConnectionException: HikariPool-1 - Connection is not available, request timed out after 60007ms.
+	at io.airbyte.integrations.destination.jdbc.AbstractJdbcDestination.attemptTableOperations(AbstractJdbcDestination.java:146)
+	at io.airbyte.integrations.destination.jdbc.AbstractJdbcDestination.attemptSQLCreateAndDropTableOperations(AbstractJdbcDestination.java:100)
+	at io.airbyte.integrations.destination.clickhouse.ClickhouseDestination.check(ClickhouseDestination.java:90)
+	at io.airbyte.integrations.base.ssh.SshTunnel.sshWrap(SshTunnel.java:270)
+	at io.airbyte.integrations.base.ssh.SshWrappedDestination.check(SshWrappedDestination.java:67)
+	at io.airbyte.integrations.base.IntegrationRunner.runInternal(IntegrationRunner.java:124)
+	at io.airbyte.integrations.base.IntegrationRunner.run(IntegrationRunner.java:99)
+	at io.airbyte.integrations.destination.clickhouse.ClickhouseDestination.main(ClickhouseDestination.java:114)
+Caused by: java.sql.SQLTransientConnectionException: HikariPool-1 - Connection is not available, request timed out after 60007ms.
+	at com.zaxxer.hikari.pool.HikariPool.createTimeoutException(HikariPool.java:696)
+	at com.zaxxer.hikari.pool.HikariPool.getConnection(HikariPool.java:181)
+	at com.zaxxer.hikari.pool.HikariPool.getConnection(HikariPool.java:146)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:100)
+	at io.airbyte.db.jdbc.DefaultJdbcDatabase.bufferedResultSetQuery(DefaultJdbcDatabase.java:54)
+	at io.airbyte.integrations.destination.jdbc.AbstractJdbcDestination.attemptTableOperations(AbstractJdbcDestination.java:126)
+	... 7 more
+Caused by: java.sql.SQLException: Connection refused, server ClickHouseNode [uri=http://localhost:8123/rembo, options={socket_timeout=3000000}]
+	at com.clickhouse.jdbc.SqlExceptionUtils.handle(SqlExceptionUtils.java:55)
+	at com.clickhouse.jdbc.SqlExceptionUtils.handle(SqlExceptionUtils.java:70)
+	at com.clickhouse.jdbc.internal.ClickHouseConnectionImpl.getServerInfo(ClickHouseConnectionImpl.java:86)
+	at com.clickhouse.jdbc.internal.ClickHouseConnectionImpl.<init>(ClickHouseConnectionImpl.java:244)
+	at com.clickhouse.jdbc.internal.ClickHouseConnectionImpl.<init>(ClickHouseConnectionImpl.java:214)
+	at com.clickhouse.jdbc.ClickHouseDriver.connect(ClickHouseDriver.java:145)
+	at com.clickhouse.jdbc.ClickHouseDriver.connect(ClickHouseDriver.java:41)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:359)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:201)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:470)
+	at com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:733)
+	at com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:712)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: java.net.ConnectException: Connection refused
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672)
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:542)
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:597)
+	at java.base/java.net.Socket.connect(Socket.java:633)
+	at java.base/sun.net.NetworkClient.doConnect(NetworkClient.java:178)
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:532)
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:637)
+	at java.base/sun.net.www.http.HttpClient.<init>(HttpClient.java:280)
+	at java.base/sun.net.www.http.HttpClient.New(HttpClient.java:385)
+	at java.base/sun.net.www.http.HttpClient.New(HttpClient.java:407)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(HttpURLConnection.java:1309)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1242)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:1128)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:1057)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getOutputStream0(HttpURLConnection.java:1430)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getOutputStream(HttpURLConnection.java:1401)
+	at com.clickhouse.client.http.HttpUrlConnectionImpl.post(HttpUrlConnectionImpl.java:226)
+	at com.clickhouse.client.http.ClickHouseHttpClient.send(ClickHouseHttpClient.java:101)
+	at com.clickhouse.client.AbstractClient.execute(AbstractClient.java:296)
+	at com.clickhouse.client.ClickHouseClientBuilder$Agent.sendOnce(ClickHouseClientBuilder.java:191)
+	at com.clickhouse.client.ClickHouseClientBuilder$Agent.send(ClickHouseClientBuilder.java:202)
+	at com.clickhouse.client.ClickHouseClientBuilder$Agent.execute(ClickHouseClientBuilder.java:234)
+	at com.clickhouse.client.ClickHouseRequest.execute(ClickHouseRequest.java:1748)
+	at com.clickhouse.jdbc.internal.ClickHouseConnectionImpl.getServerInfo(ClickHouseConnectionImpl.java:79)
+	... 14 more
+
+2024-02-26 22:31:46 [46mplatform[0m > INFO c.z.h.HikariDataSource(close):350 HikariPool-1 - Shutdown initiated...
+2024-02-26 22:31:46 [46mplatform[0m > INFO c.z.h.HikariDataSource(close):352 HikariPool-1 - Shutdown completed.
+2024-02-26 22:31:46 [46mplatform[0m > INFO i.a.i.b.IntegrationRunner(runInternal):195 Completed integration: io.airbyte.integrations.base.ssh.SshWrappedDestination
+2024-02-26 22:31:46 [46mplatform[0m > INFO i.a.i.d.c.ClickhouseDestination(main):115 completed destination: class io.airbyte.integrations.destination.clickhouse.ClickhouseDestination
+2024-02-26 22:31:46 [46mplatform[0m > Check connection job received output: io.airbyte.config.StandardCheckConnectionOutput@6f408309[status=failed,message=Could not connect with provided configuration. 
+java.sql.SQLTransientConnectionException: HikariPool-1 - Connection is not available, request timed out after 60007ms.,additionalProperties={}]
+2024-02-26 22:31:46 [46mplatform[0m > 
+2024-02-26 22:31:46 [46mplatform[0m > ----- END CHECK -----
+2024-02-26 22:31:46 [46mplatform[0m > 
+2024-02-26 22:31:47 [46mplatform[0m > Retry State: RetryManager(completeFailureBackoffPolicy=BackoffPolicy(minInterval=PT10S, maxInterval=PT30M, base=3), partialFailureBackoffPolicy=null, successiveCompleteFailureLimit=5, totalCompleteFailureLimit=10, successivePartialFailureLimit=1000, totalPartialFailureLimit=10, successiveCompleteFailures=2, totalCompleteFailures=2, successivePartialFailures=0, totalPartialFailures=0)
+ Backoff before next attempt: 30 seconds
+2024-02-26 22:31:47 [46mplatform[0m > Failing job: 13, reason: Connection Check Failed 5c865c74-9da7-4528-956c-50d8c55a1f6f

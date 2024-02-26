@@ -1,0 +1,47 @@
+[32m2024-02-27 00:28:07 +0200[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - 28c89952-ddb2-439a-81b5-8c352d17a7dd - 9986 - LOGS_CAPTURED - Started capturing logs in process (pid: 9986).
+[32m2024-02-27 00:28:07 +0200[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - 28c89952-ddb2-439a-81b5-8c352d17a7dd - 9986 - run_dbt_42abf - STEP_START - Started execution of step "run_dbt_42abf".
+[32m2024-02-27 00:28:07 +0200[0m - dagster - [34mINFO[0m - resource:dbt - 28c89952-ddb2-439a-81b5-8c352d17a7dd - run_dbt_42abf - Executing command: dbt --no-use-colors --log-format json build --project-dir /Users/mugisha/Documents/GitHub/rembo/postgres/dbt_transformation --profiles-dir /Users/mugisha/Documents/GitHub/rembo/postgres/dbt_transformation/config --select fqn:*
+[32m2024-02-27 00:28:10 +0200[0m - dagster - [34mINFO[0m - resource:dbt - 28c89952-ddb2-439a-81b5-8c352d17a7dd - run_dbt_42abf - Running with dbt=1.7.8
+[32m2024-02-27 00:28:10 +0200[0m - dagster - [34mINFO[0m - resource:dbt - 28c89952-ddb2-439a-81b5-8c352d17a7dd - run_dbt_42abf - target not specified in profile 'dbt_transformation', using 'default'
+[32m2024-02-27 00:28:10 +0200[0m - dagster - [34mINFO[0m - resource:dbt - 28c89952-ddb2-439a-81b5-8c352d17a7dd - run_dbt_42abf - Registered adapter: clickhouse=1.7.2
+[32m2024-02-27 00:28:10 +0200[0m - dagster - [34mINFO[0m - resource:dbt - 28c89952-ddb2-439a-81b5-8c352d17a7dd - run_dbt_42abf - Found 3 models, 2 tests, 4 sources, 0 exposures, 0 metrics, 421 macros, 0 groups, 0 semantic models
+[32m2024-02-27 00:28:10 +0200[0m - dagster - [34mINFO[0m - resource:dbt - 28c89952-ddb2-439a-81b5-8c352d17a7dd - run_dbt_42abf
+[32m2024-02-27 00:28:10 +0200[0m - dagster - [34mINFO[0m - resource:dbt - 28c89952-ddb2-439a-81b5-8c352d17a7dd - run_dbt_42abf - Unexpected Http Driver Exception
+[32m2024-02-27 00:28:11 +0200[0m - dagster - [34mINFO[0m - resource:dbt - 28c89952-ddb2-439a-81b5-8c352d17a7dd - run_dbt_42abf - Unexpected Http Driver Exception
+[32m2024-02-27 00:28:11 +0200[0m - dagster - [34mINFO[0m - resource:dbt - 28c89952-ddb2-439a-81b5-8c352d17a7dd - run_dbt_42abf
+[32m2024-02-27 00:28:11 +0200[0m - dagster - [34mINFO[0m - resource:dbt - 28c89952-ddb2-439a-81b5-8c352d17a7dd - run_dbt_42abf - Finished running  in 0 hours 0 minutes and 1.11 seconds (1.11s).
+[32m2024-02-27 00:28:11 +0200[0m - dagster - [34mERROR[0m - [31mresource:dbt - 28c89952-ddb2-439a-81b5-8c352d17a7dd - run_dbt_42abf - Encountered an error:
+Database Error
+  Error HTTPConnectionPool(host='localhost', port=8123): Max retries exceeded with url: /?wait_end_of_query=1 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x107259280>: Failed to establish a new connection: [Errno 61] Connection refused')) executing HTTP request attempt 1 http://localhost:8123[0m
+[32m2024-02-27 00:28:13 +0200[0m - dagster - [34mERROR[0m - [31m__ASSET_JOB - 28c89952-ddb2-439a-81b5-8c352d17a7dd - 9986 - run_dbt_42abf - STEP_FAILURE - Execution of step "run_dbt_42abf" failed.
+
+dagster_dbt.errors.DagsterDbtCliFatalRuntimeError: Fatal error in the dbt CLI (return code 2): Running with dbt=1.7.8 target not specified in profile 'dbt_transformation', using 'default' Registered adapter: clickhouse=1.7.2 Found 3 models, 2 tests, 4 sources, 0 exposures, 0 metrics, 421 macros, 0 groups, 0 semantic models  Unexpected Http Driver Exception Unexpected Http Driver Exception  Finished running  in 0 hours 0 minutes and 1.11 seconds (1.11s). Encountered an error:
+Database Error
+  Error HTTPConnectionPool(host='localhost', port=8123): Max retries exceeded with url: /?wait_end_of_query=1 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x107259280>: Failed to establish a new connection: [Errno 61] Connection refused')) executing HTTP request attempt 1 http://localhost:8123
+
+Stack Trace:
+  File "/Users/mugisha/Documents/GitHub/rembo/venv/lib/python3.9/site-packages/dagster/_core/execution/plan/execute_plan.py", line 286, in dagster_event_sequence_for_step
+    for step_event in check.generator(step_events):
+  File "/Users/mugisha/Documents/GitHub/rembo/venv/lib/python3.9/site-packages/dagster/_core/execution/plan/execute_step.py", line 519, in core_dagster_event_sequence_for_step
+    for user_event in _step_output_error_checked_user_event_sequence(
+  File "/Users/mugisha/Documents/GitHub/rembo/venv/lib/python3.9/site-packages/dagster/_core/execution/plan/execute_step.py", line 201, in _step_output_error_checked_user_event_sequence
+    for user_event in user_event_sequence:
+  File "/Users/mugisha/Documents/GitHub/rembo/venv/lib/python3.9/site-packages/dagster/_core/execution/plan/execute_step.py", line 99, in _process_asset_results_to_events
+    for user_event in user_event_sequence:
+  File "/Users/mugisha/Documents/GitHub/rembo/venv/lib/python3.9/site-packages/dagster/_core/execution/plan/compute.py", line 214, in execute_core_compute
+    for step_output in _yield_compute_results(step_context, inputs, compute_fn, compute_context):
+  File "/Users/mugisha/Documents/GitHub/rembo/venv/lib/python3.9/site-packages/dagster/_core/execution/plan/compute.py", line 183, in _yield_compute_results
+    for event in iterate_with_context(
+  File "/Users/mugisha/Documents/GitHub/rembo/venv/lib/python3.9/site-packages/dagster/_utils/__init__.py", line 467, in iterate_with_context
+    next_output = next(iterator)
+  File "/Users/mugisha/Documents/GitHub/rembo/venv/lib/python3.9/site-packages/dagster_dbt/asset_defs.py", line 349, in _dbt_op
+    yield from _stream_event_iterator(
+  File "/Users/mugisha/Documents/GitHub/rembo/venv/lib/python3.9/site-packages/dagster_dbt/asset_defs.py", line 248, in _stream_event_iterator
+    for parsed_json_line in dbt_resource.cli_stream_json(
+  File "/Users/mugisha/Documents/GitHub/rembo/venv/lib/python3.9/site-packages/dagster_dbt/core/resources.py", line 227, in cli_stream_json
+    for event in execute_cli_stream(
+  File "/Users/mugisha/Documents/GitHub/rembo/venv/lib/python3.9/site-packages/dagster_dbt/core/utils.py", line 177, in execute_cli_stream
+    for event in _core_execute_cli(
+  File "/Users/mugisha/Documents/GitHub/rembo/venv/lib/python3.9/site-packages/dagster_dbt/core/utils.py", line 147, in _core_execute_cli
+    raise DagsterDbtCliFatalRuntimeError(messages=messages)
+[0m
